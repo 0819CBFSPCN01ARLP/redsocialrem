@@ -2,9 +2,53 @@
 <html lang="es" dir="ltr">
   <head>
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/registro.css">
     <title>Login</title>
   </head>
-  <body>
 
-  </body>
+<!-- encabezado -->
+<header class="jumbotron-fluid bg-primary">
+  <nav class = "nav justify-content-right my-3">
+    <a id="registrate" class="nav-link" href="registro.html">Registrate</a>
+  </nav>
+</header>
+
+<!-- Formulario de ingreso -->
+<body>
+  <h1 class = "text-center col-12 col-md-12">INICIAR SESIÒN</h1>
+
+  <br>
+
+  <div class="container">
+    <form class="" action="index.html" method="post">
+      <div class="form-group row justify-center">
+          <label class="col-5" for="Email">Email</label>
+          <input class="col-4" id="Email" type="Email" name="Email" value="">
+      </div>
+
+      <br>
+
+      <div class="form-group row justify-center">
+        <label class="col-5" for="Contreseña">Cotraseña</label>
+        <input class ="col-4"id="Contraseña" type="password" name="password" value="">
+      </div>
+      <br>
+      <div class="row justify-content-center">
+          <button type="submit" class="btn btn-primary"><a href="home.html">Iniciar Sesiòn</a></button>
+      </div>
+  </div>
+    </form>
+  </div>
+</body>
+
+<!-- Pie de pagina -->
+<footer class="jumbotron-fluid bg-primary">
+  <footer class="jumbotron-fluid bg-primary">
+    <nav class="nav justify-content-center my-3">
+      <a class="nav-link" href="faq.html">Preguntas Frecuentes</a>
+      <a class="nav-link" href="contacto.html">Contacto</a>
+    </nav>
+</footer>
 </html>
