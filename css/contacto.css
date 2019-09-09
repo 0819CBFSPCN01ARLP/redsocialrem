@@ -1,0 +1,26 @@
+header {
+  padding: 1rem;
+  overflow:hidden;
+}
+header a {
+  float: right;
+  margin-right: 2rem;
+}
+a {
+  text-decoration: none;
+  color: white;
+}
+a:hover {
+  text-decoration: none;
+  color: rgb(212, 219, 208);
+}
+h1 {
+  margin: 2rem auto;
+}
+form {
+  margin-bottom: 2rem;
+}
+footer {
+  padding: 0.5rem;
+  text-align: center;
+}

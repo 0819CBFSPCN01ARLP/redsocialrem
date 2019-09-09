@@ -1,13 +1,19 @@
 header{
+  padding: 1rem;
   overflow: hidden;
+  margin-bottom: 2rem;
 }
 header a {
   float: right;
-  margin-left: 8px;
+  margin-left: 2rem;
 }
 a{
   text-decoration: none;
   color:white;
+}
+a:hover {
+  text-decoration: none;
+  color: rgb(212, 219, 208);
 }
 #home{
   margin-right:15px;
@@ -44,5 +50,6 @@ section #publicaciones{
   float: left;
 }
 footer{
-  margin-top: 5px;
+  padding: 0.5rem;
+  margin-top: 2rem;
 }
