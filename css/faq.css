@@ -1,0 +1,57 @@
+.jumbotron-fluid {
+  background-color: #464655 !important;
+}
+header {
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  overflow:hidden;
+}
+header a {
+  float: right;
+  margin-right: 2rem;
+}
+.logo {
+  background-position: left;
+  width: 4rem;
+  margin-left: 5%;
+}
+.nav-link {
+  background-position: center;
+  font-size: 18px;
+  font-weight: bold;
+  color: white;
+  border-top: 15px;;
+}
+body {
+  background-color: #F5EDF0 !important;
+}
+.accordion{
+  justify-content: space-evenly;
+  margin-top: 50px;
+  width: 100%;
+}
+a:hover {
+  text-decoration: none;
+  color: #F77F00;
+}
+.card, .card-header {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    word-wrap: break-word;
+    background-clip: border-box;
+    border-radius: .25rem;
+    background-color: rgba(0,0,0,.03) !important;
+    border-color: rgba(0,0,0,.125);
+}
+.col-10 {
+  padding-right: 0px !important;
+  padding-left: 0px !important;
+}
+.btn-link{
+  color: #F77F00;
+}
+footer {
+  padding: 0.1rem;
+}
