@@ -10,14 +10,14 @@
   <body>
     <header class="jumbotron-fluid bg-primary">
       <nav>
-        <a class="nav-link" href="home.html">Home</a>
-        <a class="nav-link" href="perfil.html">Perfil</a>
-        <a class="nav-link" href="amigos.html">Amigos</a>
+        <a class="nav-link" href="home.php">Home</a>
+        <a class="nav-link" href="perfil.php">Perfil</a>
+        <a class="nav-link" href="amigos.php">Amigos</a>
       </nav>
     </header>
 
     <h1 class="text-center">CONTACTO</h1>
-    <form class="" action="home.html" method="post">
+    <form class="" action="home.php" method="post">
       <div class="form-group row justify-content-center">
         <label class="col-5 col-md-3 col-lg-2 col-form-label" for="inputEmail">Correo electrónico</label>
         <input type="email" class="form-control col-5" id="inputEmail" required>
@@ -32,7 +32,7 @@
     </form>
 
     <footer class="jumbotron-fluid bg-primary">
-      <a class="nav-link" href="faq.html">Preguntas Frecuentes</a>
+      <a class="nav-link" href="faq.php">Preguntas Frecuentes</a>
     </footer>
   </body>
 </html>

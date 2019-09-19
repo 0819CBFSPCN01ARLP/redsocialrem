@@ -9,12 +9,12 @@
   </head>
   <body>
     <header class="jumbotron-fluid bg-primary">
-      <a href="login.html">Login</a>
+      <a href="login.php">Login</a>
     </header>
 
     <h1 class="text-center">REGISTRO</h1>
 
-    <form action="home.html" method="post">
+    <form action="home.php" method="post">
       <div class="form-group row justify-content-center">
         <label class="col-5 col-md-3 col-lg-2 col-form-label" for="inputNombre">Nombre</label>
         <input type="text" class="form-control col-5" id="inputNombre" required>
@@ -28,7 +28,7 @@
         <input type="email" class="form-control col-5" id="inputEmail" required>
       </div>
       <div class="form-group row justify-content-center">
-        <label class="col-5 col-md-3 col-lg-2 col-form-label" for="inputContra">Password</label>
+        <label class="col-5 col-md-3 col-lg-2 col-form-label" for="inputContra">Contraseña</label>
         <input type="password" class="form-control col-5" id="inputContra" required>
       </div>
       <div class="row justify-content-center">
@@ -38,8 +38,8 @@
 
     <footer class="jumbotron-fluid bg-primary">
       <nav class="nav justify-content-center">
-        <a class="nav-link" href="faq.html">Preguntas Frecuentes</a>
-        <a class="nav-link" href="contacto.html">Contacto</a>
+        <a class="nav-link" href="faq.php">Preguntas Frecuentes</a>
+        <a class="nav-link" href="contacto.php">Contacto</a>
       </nav>
     </footer>
   </body>

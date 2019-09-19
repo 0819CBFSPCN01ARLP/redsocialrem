@@ -10,7 +10,7 @@
 
 <!-- encabezado -->
 <header class="jumbotron-fluid bg-primary">
-    <a id="registrate" href="registro.html">Registrate</a>
+    <a id="registrate" href="registro.php">Registrate</a>
 </header>
 
 <!-- Formulario de ingreso -->
@@ -20,7 +20,7 @@
   <br>
 
   <div class="container">
-    <form class="" action="home.html" method="post">
+    <form class="" action="home.php" method="post">
       <div class="form-group row justify-content-center">
           <label class="col-5" for="Email">Email</label>
           <input class="col-4" id="Email" type="Email" name="Email" value="">
@@ -43,8 +43,8 @@
 <!-- Pie de pagina -->
 <footer class="jumbotron-fluid bg-primary">
     <nav class="nav justify-content-center">
-      <a class="nav-link" href="faq.html">Preguntas Frecuentes</a>
-      <a class="nav-link" href="contacto.html">Contacto</a>
+      <a class="nav-link" href="faq.php">Preguntas Frecuentes</a>
+      <a class="nav-link" href="contacto.php">Contacto</a>
     </nav>
 </footer>
 

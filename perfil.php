@@ -10,9 +10,9 @@
 
 <!-- encabezado -->
 <header class="jumbotron-fluid bg-primary">
-    <a id="home" class="text-right" href="home.html">Home</a>
-    <a class="text-right" href="amigos.html">Amigos</a>
-    <a class="text-right" href="perfil.html">Perfil</a>
+    <a id="home" class="text-right" href="home.php">Home</a>
+    <a class="text-right" href="amigos.php">Amigos</a>
+    <a class="text-right" href="perfil.php">Perfil</a>
     <h4 class = "text-left">LOGO</h4>
 </header>
 
@@ -74,8 +74,8 @@
 <!-- Pie de pagina -->
   <footer class="jumbotron-fluid bg-primary">
     <nav class = "nav justify-content-center">
-      <a class="nav-link" href="faq.html">Preguntas Frecuentes</a>
-      <a class = "nav-link" href="contacto.html">Contacto</a>
+      <a class="nav-link" href="faq.php">Preguntas Frecuentes</a>
+      <a class = "nav-link" href="contacto.php">Contacto</a>
     </nav>
   </footer>
 </html>

@@ -10,8 +10,8 @@
   <body>
     <header class="jumbotron-fluid bg-primary">
       <nav>
-        <a class="nav-link" href="home.html">Home</a>
-        <a class="nav-link" href="perfil.html">Perfil</a>
+        <a class="nav-link" href="home.php">Home</a>
+        <a class="nav-link" href="perfil.php">Perfil</a>
       </nav>
     </header>
     <h1>AMIGOS</h1>
@@ -113,8 +113,8 @@
 
     <footer class="jumbotron-fluid bg-primary">
       <nav class="nav justify-content-center my-3">
-        <a class="nav-link" href="faq.html">Preguntas Frecuentes</a>
-        <a class="nav-link" href="contacto.html">Contacto</a>
+        <a class="nav-link" href="faq.php">Preguntas Frecuentes</a>
+        <a class="nav-link" href="contacto.php">Contacto</a>
       </nav>
     </footer>
   </body>
