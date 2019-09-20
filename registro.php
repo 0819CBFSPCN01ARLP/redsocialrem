@@ -1,5 +1,9 @@
-<!DOCTYPE html>
-<html lang="es" dir="ltr">
+<?php
+  require_once("php/validaciones.php");
+ ?>
+
+ <!DOCTYPE html>
+ <html lang="es" dir="ltr">
   <head>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="css/registro.css">
@@ -14,22 +18,42 @@
 
     <h1 class="text-center">REGISTRO</h1>
 
-    <form action="home.php" method="post">
+    <?php
+      if ($_POST) {
+        $errores = [];
+        $errores[] = nombre();
+        $errores[] = apellido();
+        $errores[] = correo();
+        $errores[] = pass();
+        $nombre = trim($_POST["nombre"]);
+        $apellido = trim($_POST["apellido"]);
+        $correo = trim($_POST["correo"]);
+
+        foreach ($errores as $error) {
+          echo $error;
+        }
+        if ($errores == ["", "", "", ""]) {
+          header("Location: home.php");
+          exit;
+        }
+      }
+     ?>
+    <form action="registro.php" method="post">
       <div class="form-group row justify-content-center">
         <label class="col-5 col-md-3 col-lg-2 col-form-label" for="inputNombre">Nombre</label>
-        <input type="text" class="form-control col-5" id="inputNombre" required>
+        <input name="nombre" type="text" class="form-control col-5" id="inputNombre" value="<?=$nombre; ?>" required>
       </div>
       <div class="form-group row justify-content-center">
         <label class="col-5 col-md-3 col-lg-2 col-form-label" for="inputApellido">Apellido</label>
-        <input type="text" class="form-control col-5" id="inputApellido" required>
+        <input name="apellido" type="text" class="form-control col-5" id="inputApellido" value="<?=$apellido; ?>" required>
       </div>
       <div class="form-group row justify-content-center">
         <label class="col-5 col-md-3 col-lg-2 col-form-label" for="inputEmail">Correo electrónico</label>
-        <input type="email" class="form-control col-5" id="inputEmail" required>
+        <input name="correo" type="email" class="form-control col-5" id="inputEmail" value="<?=$correo; ?>" required>
       </div>
       <div class="form-group row justify-content-center">
-        <label class="col-5 col-md-3 col-lg-2 col-form-label" for="inputContra">Contraseña</label>
-        <input type="password" class="form-control col-5" id="inputContra" required>
+        <label class="col-5 col-md-3 col-lg-2 col-form-label" for="inputContra">Contraseña</label><br>
+        <input name="pass" type="password" class="form-control col-5" id="inputContra" required>
       </div>
       <div class="row justify-content-center">
         <button type="submit" class="btn btn-primary">Registrarse</button>
