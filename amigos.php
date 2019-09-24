@@ -2,18 +2,14 @@
 <html lang="es" dir="ltr">
   <head>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link rel="stylesheet" href="css/amigos.css">
+    <link rel="stylesheet" href="css/home.css">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons.js"></script>
     <meta charset="utf-8">
     <title>REM</title>
   </head>
   <body>
-    <header class="jumbotron-fluid bg-primary">
-      <nav>
-        <a class="nav-link" href="home.php">Home</a>
-        <a class="nav-link" href="perfil.php">Perfil</a>
-      </nav>
-    </header>
+  <?php include("header.php"); ?>
     <h1>AMIGOS</h1>
     <br>
     <!-- Todos los amigos -->
