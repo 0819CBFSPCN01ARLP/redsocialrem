@@ -65,13 +65,13 @@
         </div>
         <div id="fotos-amigos" class="col-3 col-lg-3 col-md-3 col-sm-3">
           <img id="amigo" class="col-12 col-lg-12 col-md-12 col-sm-12" src="https://www.tuexperto.com/wp-content/uploads/2015/07/perfil_01.jpg" alt="">
-        </divhttps://www.tuexperto.com/wp-content/uploads/2015/07/perfil_01.jpg
+        </div>
       </section>
     </div>
     <br>
 <!-- publicaciones -->
   <div class="container">
-      <section id="publicaciones" class = "main row">
+      <section id="publicaciones" class = "row">
         <article class="col-md-12">
           <img id="mi-foto-publicaciones" class= "col-3" src="https://cdn.pixabay.com/photo/2016/09/07/16/25/husky-1651984_960_720.jpg" alt="">
           <p>
@@ -95,9 +95,9 @@
 
 <!-- Pie de pagina -->
   <footer class="jumbotron-fluid bg-primary">
-    <nav class = "nav justify-content-center">
-      <a class="nav-link" href="faq.php">Preguntas Frecuentes</a>
-      <a class = "nav-link" href="contacto.php">Contacto</a>
+    <nav class = "nav justify-content-center my-3">
+      <a class="nav-link" href="faq.php"><ion-icon name="help"></ion-icon>Preguntas Frecuentes</a>
+      <a class = "nav-link" href="contacto.php"><ion-icon name="mail"></ion-icon>Contacto</a>
     </nav>
   </footer>
 </html>

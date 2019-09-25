@@ -1,5 +1,6 @@
 <?php
   require_once("php/validaciones.php");
+  require_once("php/usuarios.php");
  ?>
 
  <!DOCTYPE html>
@@ -28,6 +29,8 @@
         $nombre = trim($_POST["nombre"]);
         $apellido = trim($_POST["apellido"]);
         $correo = trim($_POST["correo"]);
+
+        nuevoUsuario();
 
         foreach ($errores as $error) {
           echo $error;
