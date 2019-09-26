@@ -1,28 +1,8 @@
-header {
-  padding-top: 1rem;
-  padding-bottom: 1rem;
-  overflow:hidden;
-}
 body {
   background-color: #F5EDF0 !important;
 }
-header a {
-  float: right;
-  margin-right: 2rem;
-}
-.jumbotron-fluid {
-  background-color: #464655 !important;
-}
-a {
-  text-decoration: none;
-  color: white;
-}
 .btn-primary {
   background-color: #F77F00 !important;
-}
-a:hover {
-  text-decoration: none;
-  color: #F77F00;
 }
 section img {
   border-radius: 100% !important;
@@ -34,19 +14,6 @@ section img {
 }
 aside img{
   width: 5rem;
-}
-footer {
-  padding: 0.5rem;
-}
-.logo {
-  background-position: left;
-  width: 4rem;
-  margin-left: 5%;
-}
-.nav-link {
-  background-position: center;
-  font-size: 18px;
-  font-weight: bold;
 }
 .padre {
   float: right !important;

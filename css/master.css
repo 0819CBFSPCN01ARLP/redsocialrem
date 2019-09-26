@@ -1,0 +1,33 @@
+header {
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  overflow:hidden;
+}
+.logo {
+  background-position: left;
+  width: 4rem;
+  margin-left: 5%;
+}
+.nav-link {
+  background-position: center;
+  font-size: 18px;
+  font-weight: bold;
+}
+header a {
+  float: right;
+  margin-right: 2rem;
+}
+.jumbotron-fluid {
+  background-color: #464655 !important;
+}
+a {
+  text-decoration: none;
+  color: white;
+}
+a:hover {
+  text-decoration: none;
+  color: #F77F00;
+}
+footer {
+  padding: 0.5rem;
+}

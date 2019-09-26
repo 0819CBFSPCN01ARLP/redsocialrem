@@ -1,15 +1,12 @@
-<!DOCTYPE html>
-<html lang="es" dir="ltr">
-  <head>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link rel="stylesheet" href="css/home.css">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <script src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons.js"></script>
-    <meta charset="utf-8">
-    <title>REM</title>
-  </head>
+<?php
+  include_once("php/incluir.php");
+ ?>
+
+ <!DOCTYPE html>
+ <html lang="es" dir="ltr">
+  <?php incluir_template("head", ["titulo" => "amigos"]); ?>
   <body>
-  <?php include("header.php"); ?>
+  <?php incluir_template("header"); ?>
     <h1>AMIGOS</h1>
     <br>
     <!-- Todos los amigos -->
@@ -107,11 +104,6 @@
     <!-- Fin de amigos -->
     <br>
 
-    <footer class="jumbotron-fluid bg-primary">
-      <nav class="nav justify-content-center my-3">
-        <a class="nav-link" href="faq.php"><ion-icon name="help"></ion-icon>Preguntas Frecuentes</a>
-        <a class="nav-link" href="contacto.php"><ion-icon name="mail"></ion-icon>Contacto</a>
-      </nav>
-    </footer>
+    <?php incluir_template("footer"); ?>
   </body>
 </html>
