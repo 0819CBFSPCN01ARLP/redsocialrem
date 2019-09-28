@@ -36,7 +36,8 @@
           echo $error;
         }
         if ($errores == ["", "", "", ""]) {
-          header("Location: home.php");
+          $_SESSION["correo"] = $_POST["correo"];
+          header("Location: configuracion.php");
           exit;
         }
       }
