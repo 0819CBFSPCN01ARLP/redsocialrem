@@ -12,16 +12,13 @@
   </head>
 
 <!-- encabezado -->
-<header class="jumbotron-fluid bg-primary">
-    <a id="registrate" href="registro.php">Registrate</a>
+<header style="background-color:#6f42c1" class="jumbotron-fluid">
+    <a style="color:white;" id="registrate" href="registro.php">Registrate</a>
 </header>
 
 <!-- Formulario de ingreso -->
 <body>
-  <h1 class = "text-center col-12 col-md-12">INICIAR SESIÓN</h1>
-
-  <br>
-
+  <h1 class = "text-center"><em>INICIAR SESIÓN</em></h1>
   <div class="container">
     <?php
       if ($_POST) {
@@ -39,19 +36,19 @@
         }
       }
      ?>
+     <div class="modal-dialog text-center">
+       <div class="col-sm-12 col-md-12 col-lg-12">
+           <img class="col-sm-8 col-md-8 col-lg-10" src="img/logo.png" alt="">
+       </div>
+     </div>
     <form class="" action="login.php" method="post">
       <div class="form-group row justify-content-center">
-          <label class="col-5" for="Email">Email</label>
-          <input class="col-4" id="Email" type="Email" name="correo" value="<?=$correo; ?>" required>
+          <input class="col-6" id="Email" type="Email" name="correo" value="<?=$correo; ?>" required placeholder="EMAIL">
       </div>
-
-      <br>
-
       <div class="form-group row justify-content-center">
-        <label class="col-5" for="Contreseña">Cotraseña</label>
-        <input class ="col-4"id="Contraseña" type="password" name="pass" value="" required>
+        <input class ="col-6"id="Contraseña" type="password" name="pass" value="" required placeholder="contraseña">
       </div>
-      <br>
+<br>
       <div class="row justify-content-center">
           <button type="submit" class="btn btn-primary">Iniciar Sesión</button>
       </div>
@@ -60,11 +57,10 @@
 </body>
 
 <!-- Pie de pagina -->
-<footer class="jumbotron-fluid bg-primary">
+<footer  style="background-color:#6f42c1" class="jumbotron-fluid">
     <nav class="nav justify-content-center">
-      <a class="nav-link" href="faq.php">Preguntas Frecuentes</a>
-      <a class="nav-link" href="contacto.php">Contacto</a>
+      <a style="color:white;" class=" nav-link" href="faq.php">Preguntas Frecuentes</a>
+      <a style="color:white;" class="nav-link" href="contacto.php">Contacto</a>
     </nav>
 </footer>
-
 </html>

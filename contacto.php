@@ -9,7 +9,7 @@
 
       <?php incluir_template("header"); ?>
 
-    <h1 class="text-center">CONTACTO</h1>
+    <h1 class="text-center"><em>CONTACTO</em></h1>
 
     <?php
       if ($_POST) {
@@ -30,18 +30,15 @@
      ?>
     <form class="" action="contacto.php" method="post">
       <div class="form-group row justify-content-center">
-        <label class="col-5 col-md-3 col-lg-2 col-form-label" for="inputEmail">Correo electrónico</label>
-        <input name="correo" type="email" class="form-control col-5" id="inputEmail" value="<?=$correo; ?>" required>
+        <input name="correo" type="email" class="form-control col-5" id="inputEmail" value="<?=$correo; ?>" required placeholder="EMAIL">
       </div>
       <div class="form-group row justify-content-center">
-        <label class="col-5 col-md-3 col-lg-2 col-form-label" for="inputMensaje">Mensaje</label>
-        <textarea name="text" class="form-control col-5" id="inputMensaje" rows="3" required></textarea>
+        <textarea name="text" class="form-control col-5" id="inputMensaje" rows="3" required>MENSAJE</textarea>
       </div>
       <div class="row justify-content-center">
         <button type="submit" class="btn btn-primary">Enviar</button>
       </div>
     </form><br>
-
     <?php incluir_template("footer"); ?>
   </body>
 </html>
