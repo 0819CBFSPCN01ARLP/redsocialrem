@@ -1,5 +1,6 @@
 <?php
   require_once("php/incluir.php");
+  session_start();
  ?>
 
  <!DOCTYPE html>
@@ -8,13 +9,13 @@
 
 <!-- encabezado -->
 <?php incluir_template("header"); ?><!-- carrusel -->
-<!-- foto perfil -->
-<body>
 
+<body>
+  <!-- foto perfil -->
   <div class="container">
     <section class ="main row">
         <article class="col-lg-4 col-md-12 col-sm-12">
-              <img id="mi-foto" class="col-md-11 col-sm-9" <img src="php/subidas/fotoPerfil.jpg">
+              <img id="mi-foto" class="col-md-11 col-sm-9" <img src="<?php echo "php/subidas/perfil" . $_SESSION["correo"] . ".jpg"; ?>">
               <form action="php/subirFotos.php" method="post" enctype="multipart/form-data">
                 <input type="file" name="archivo" id="archivo">
                 <input type="submit" value="Subir Foto">

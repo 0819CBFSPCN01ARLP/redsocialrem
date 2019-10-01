@@ -12,15 +12,20 @@
     <meta charset="utf-8">
     <title>REM</title>
   </head>
+
+  <!-- encabezado -->
+  <header style="background-color:#6f42c1" class="jumbotron-fluid">
+      <a style="color:white;" id="registrate" href="registro.php">Registrate</a>
+  </header>
+
   <body>
-    <header class="jumbotron-fluid bg-primary">
-      <a href="login.php">Login</a>
-    </header>
 
     <h1 class="text-center">REGISTRO</h1>
 
     <?php
       if ($_POST) {
+        $_SESSION["correo"] = $_POST["correo"];
+
         $errores = [];
         $errores[] = nombre();
         $errores[] = apellido();
@@ -30,14 +35,14 @@
         $apellido = trim($_POST["apellido"]);
         $correo = trim($_POST["correo"]);
 
-        nuevoUsuario();
 
         foreach ($errores as $error) {
           echo $error;
         }
         if ($errores == ["", "", "", ""]) {
+          nuevoUsuario();
           $_SESSION["correo"] = $_POST["correo"];
-          header("Location: configuracion.php");
+          header("Location: perfil.php");
           exit;
         }
       }
@@ -63,12 +68,13 @@
         <button type="submit" class="btn btn-primary">Registrarse</button>
       </div>
     </form>
-
-    <footer class="jumbotron-fluid bg-primary">
-      <nav class="nav justify-content-center">
-        <a class="nav-link" href="faq.php">Preguntas Frecuentes</a>
-        <a class="nav-link" href="contacto.php">Contacto</a>
-      </nav>
-    </footer>
   </body>
+
+  <!-- Pie de pagina -->
+  <footer  style="background-color:#6f42c1" class="jumbotron-fluid">
+    <nav class="nav justify-content-center">
+      <a style="color:white;" class=" nav-link" href="faq.php">Preguntas Frecuentes</a>
+      <a style="color:white;" class="nav-link" href="contacto.php">Contacto</a>
+    </nav>
+  </footer>
 </html>

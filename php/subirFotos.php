@@ -1,10 +1,13 @@
 <?php
+session_start();
+
 $dir = "subidas/";
 $archivo = basename($_FILES["archivo"]["name"]);
 $temp = explode(".", $archivo);
 $tipoDeArchivo = end($temp);
-$archivo = $dir . "fotoPerfil." . $tipoDeArchivo;
+$archivo = $dir . "perfil" . $_SESSION["correo"] . "." . $tipoDeArchivo;
 $subidaOk = 1;
+
 // Verificar si el archivo es una imagen.
 if(isset($_POST["submit"])) {
     $check = getimagesize($_FILES["archivo"]["tmp_name"]);

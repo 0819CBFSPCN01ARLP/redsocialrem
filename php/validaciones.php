@@ -71,7 +71,7 @@ function pass() {
   if (empty($pass)) {
     $errores["pass"] = "Falta completar la contraseña <br>";
   }
-  else if ((strlen($_POST["pass"]) <= 9)) {
+  else if ((strlen($_POST["pass"]) < 9)) {
     $errores["pass"] = "La contraseña debe contener al menos 8 caracteres <br>";
   }
   else {

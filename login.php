@@ -1,6 +1,12 @@
 <?php
   require_once("php/validaciones.php");
+  require_once("php/usuarios.php");
+  if (isset($_COOKIE["correo"]) && isset($_COOKIE["pass"])) {
+    $correo = $_COOKIE["correo"];
+    $pass = $_COOKIE["pass"];
+  }
  ?>
+
  <!DOCTYPE html>
 <html lang="es" dir="ltr">
   <head>
@@ -22,6 +28,13 @@
   <div class="container">
     <?php
       if ($_POST) {
+        if (isset($_POST["recordarme"])) {
+          setcookie("correo", $_POST["correo"]);
+          setcookie("pass", $_POST["pass"]);
+
+        }
+        $_SESSION["correo"] = $_POST["correo"];
+
         $errores = [];
         $errores[] = correo();
         $errores[] = pass();
@@ -31,7 +44,7 @@
           echo $error;
         }
         if ($errores == ["", ""]) {
-          header("Location: home.php");
+          login();
           exit;
         }
       }
@@ -46,9 +59,17 @@
           <input class="col-6" id="Email" type="Email" name="correo" value="<?=$correo; ?>" required placeholder="EMAIL">
       </div>
       <div class="form-group row justify-content-center">
-        <input class ="col-6"id="Contraseña" type="password" name="pass" value="" required placeholder="contraseña">
+        <input class ="col-6"id="Contraseña" type="password" name="pass" value="<?=$pass; ?>" required placeholder="contraseña">
       </div>
-<br>
+      <br>
+      <div class="col-auto">
+        <div class="form-check row mb-2 justify-content-center">
+          <input class="form-check-input" name="recordarme" type="checkbox" id="recordarme">
+          <label class="form-check-label" for="recordarme">
+            Recordarme
+          </label>
+        </div>
+      </div>
       <div class="row justify-content-center">
           <button type="submit" class="btn btn-primary">Iniciar Sesión</button>
       </div>
