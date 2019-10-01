@@ -8,9 +8,6 @@ section img {
   padding: 20px;
   width: 8rem;
 }
-#carrusel{
-  height: 50px;
-}
 section #fotos-amigos{
   border: solid 1px black;
   background-color: yellow;
@@ -18,9 +15,7 @@ section #fotos-amigos{
 section div #amigo{
   border-radius: 50%;
 }
-section #publicaciones{
-  display: flex;
-}
+
 #mi-foto-publicaciones{
   margin-bottom: 2px;
   margin-top: 2px;
