@@ -1,27 +1,34 @@
 <?php
   require_once("php/incluir.php");
   session_start();
- ?>
+?>
 
- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="es" dir="ltr">
   <?php incluir_template("head", ["titulo" => "perfil"]); ?>
 
-<!-- encabezado -->
-<?php incluir_template("header"); ?><!-- carrusel -->
+  <!-- encabezado -->
+  <?php incluir_template("header"); ?><!-- carrusel -->
 
-<body>
-  <!-- foto perfil -->
-  <div class="container">
-    <section class ="main row">
+  <body>
+    <!-- foto perfil -->
+    <div class="container">
+      <section class ="main row">
         <article class="col-lg-4 col-md-12 col-sm-12">
+          <?php if (isset($_SESSION["correo"])): ?>
+            <?php if (file_exists("php/subidas/perfil" . $_SESSION["correo"] . ".jpg")): ?>
               <img id="mi-foto" class="col-md-11 col-sm-9" <img src="<?php echo "php/subidas/perfil" . $_SESSION["correo"] . ".jpg"; ?>">
-              <form action="php/subirFotos.php" method="post" enctype="multipart/form-data">
-                <input type="file" name="archivo" id="archivo">
-                <input type="submit" value="Subir Foto">
-              </form>
+            <?php else: ?>
+              <img id="mi-foto" class="col-md-11 col-sm-9" <img src="php/subidas/fotoPerfil.jpg">
+            <?php endif; ?>
+          <?php endif; ?>
+          <form action="php/subirFotos.php" method="post" enctype="multipart/form-data">
+            <input type="file" name="archivo" id="archivo">
+            <input type="submit" value="Subir Foto">
+          </form>
         </article>
-<!-- carrusel -->
+
+        <!-- carrusel -->
         <article class="col-lg-8 d-none d-lg-block">
           <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
             <div style="height:400px" class="carousel-inner">
@@ -45,20 +52,20 @@
             </a>
           </div>
         </article>
-    </section>
-  </div>
-<br>
-<!-- amigos -->
+      </section>
+    </div>
+    <br>
+    <!-- amigos -->
     <div class="container">
       <section id="amigos" class = "main row">
         <div id="fotos-amigos" class="col-lg-3 col-md-6 d-none d-md-block">
           <img id="amigo" class = "col-lg-12 col-md-12" src="https://www.tuexperto.com/wp-content/uploads/2015/07/perfil_01.jpg" alt="">
         </div>
         <div id="fotos-amigos" class="col-lg-3 col-md-6 d-none d-md-block">
-              <img id="amigo" class = "col-lg-12 col-md-12" src="https://www.tuexperto.com/wp-content/uploads/2015/07/perfil_01.jpg" alt="">
+          <img id="amigo" class = "col-lg-12 col-md-12" src="https://www.tuexperto.com/wp-content/uploads/2015/07/perfil_01.jpg" alt="">
         </div>
         <div id="fotos-amigos" class="col-lg-3 d-none d-lg-block">
-            <img id="amigo" class = "col-lg-12 col-md-12" src="https://www.tuexperto.com/wp-content/uploads/2015/07/perfil_01.jpg" alt="">
+          <img id="amigo" class = "col-lg-12 col-md-12" src="https://www.tuexperto.com/wp-content/uploads/2015/07/perfil_01.jpg" alt="">
         </div>
         <div id="fotos-amigos" class="col-lg-3 d-none d-lg-block">
           <img id="amigo" class="col-lg-12 col-md-12" src="https://www.tuexperto.com/wp-content/uploads/2015/07/perfil_01.jpg" alt="">
@@ -66,21 +73,21 @@
       </section>
     </div>
     <br>
-<!-- publicaciones -->
-<div class="container">
-  <section class="col-12">
-      <div class="card w-100">
-        <div class="card-body w-100">
-          <img src="img/gato.png" alt="foto de perfil">
-          <textarea class="w-100" name="name" rows="8">¿Qué estás pensando?</textarea>
-          <br>
-          <a href="#" class="btn btn-primary">Publicar</a>
+    <!-- publicaciones -->
+    <div class="container">
+      <section class="col-12">
+        <div class="card w-100">
+          <div class="card-body w-100">
+            <img src="img/gato.png" alt="foto de perfil">
+            <textarea class="w-100" name="name" rows="8">¿Qué estás pensando?</textarea>
+            <br>
+            <a href="#" class="btn btn-primary">Publicar</a>
+          </div>
         </div>
-      </div>
-      <br>
-  </section>
-</div>
-</body>
-<!-- Pie de pagina -->
+        <br>
+      </section>
+    </div>
+  </body>
+  <!-- Pie de pagina -->
   <?php incluir_template("footer"); ?>
 </html>

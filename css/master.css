@@ -1,33 +1,31 @@
+body {
+  background-color: #F5EDF0 !important;
+}
 header {
+  background-color: #464655;
   padding-top: 1rem;
-  padding-bottom: 1rem;
-  overflow:hidden;
+  padding-bottom: 2.5rem;
+  color: white !important;
 }
 .logo {
   background-position: left;
   width: 4rem;
-  margin-left: 5%;
+  margin-right: 5%;
 }
-.nav-link {
+.menuLink {
   background-position: center;
   font-size: 18px;
   font-weight: bold;
-}
-header a {
-  float: right;
-  margin-right: 2rem;
-}
-.jumbotron-fluid {
-  background-color: #464655 !important;
-}
-a {
+  margin-left:5px;
   text-decoration: none;
   color: white;
+  margin-right: 2rem;
 }
-a:hover {
+.menuLink:hover {
   text-decoration: none;
   color: #F77F00;
 }
 footer {
+  background-color:#464655;
   padding: 0.5rem;
 }

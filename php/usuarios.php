@@ -2,16 +2,16 @@
   session_start();
 
   function nuevoUsuario() {
-      $archivo = file_get_contents("usuarios.json");
-      $usuarios = json_decode($archivo, true);
+    $archivo = file_get_contents("usuarios.json");
+    $usuarios = json_decode($archivo, true);
 
-      // VERIFICACION DE CORREO EXISTENTE
-      foreach ($usuarios as $usuario) {
-        if ($usuario["correo"] === $_POST["correo"]) {
-          echo "El correo electronico ya existe.";
-          exit;
-        }
+    // VERIFICACION DE CORREO EXISTENTE
+    foreach ($usuarios as $usuario) {
+      if ($usuario["correo"] === $_POST["correo"]) {
+        echo "El correo electronico ya existe.";
+        exit;
       }
+    }
 
     $hash = password_hash($_POST["pass"], PASSWORD_DEFAULT);
     $usuarios[] = [
@@ -23,12 +23,11 @@
 
     $archivo = json_encode($usuarios);
     file_put_contents("usuarios.json", $archivo);
-
   }
 
   function login() {
-      $archivo = file_get_contents("usuarios.json");
-      $usuarios = json_decode($archivo, true);
+    $archivo = file_get_contents("usuarios.json");
+    $usuarios = json_decode($archivo, true);
 
     foreach ($usuarios as $usuario) {
       if ($usuario["correo"] === $_POST["correo"]) {
@@ -46,5 +45,4 @@
     }
     echo "Correo electronico incorrecto";
   }
-
  ?>

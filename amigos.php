@@ -6,7 +6,7 @@
  <html lang="es" dir="ltr">
   <?php incluir_template("head", ["titulo" => "amigos"]); ?>
   <body>
-  <?php incluir_template("header"); ?>
+    <?php incluir_template("header"); ?>
     <h1>AMIGOS</h1>
     <br>
     <!-- Todos los amigos -->
@@ -103,7 +103,6 @@
     </section>
     <!-- Fin de amigos -->
     <br>
-
     <?php incluir_template("footer"); ?>
   </body>
 </html>

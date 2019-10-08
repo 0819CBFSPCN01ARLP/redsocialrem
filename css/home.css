@@ -1,10 +1,15 @@
-body {
-  background-color: #F5EDF0 !important;
+.cuerpo {
+  overflow: hidden;
+  width: 100%;
 }
-.btn-primary {
-  background-color: #F77F00 !important;
+.headerCartaAmigo{
+  border-color: #F77F00 !important;
+  font-weight: bold;
 }
-section img {
+.fotoAmigo{
+  width: 5rem;
+}
+.fotoPerfil {
   border-radius: 100% !important;
   margin-bottom: 10px;
   margin-top: 10px;
@@ -12,19 +17,10 @@ section img {
   padding: 20px;
   width: 8rem;
 }
-aside img{
-  width: 5rem;
-}
-.padre {
-  float: right !important;
-}
-.abuelo {
-  overflow: hidden;
-  width: 100%;
-  display: flex;
-  justify-content: space-evenly;
-}
-.card-header{
+.btn-primary {
+  background-color: #F77F00 !important;
   border-color: #F77F00 !important;
-  font-weight: bold;
+}
+.publicaciones {
+  float: right !important;
 }

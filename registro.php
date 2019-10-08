@@ -1,10 +1,10 @@
 <?php
   require_once("php/validaciones.php");
   require_once("php/usuarios.php");
- ?>
+?>
 
- <!DOCTYPE html>
- <html lang="es" dir="ltr">
+<!DOCTYPE html>
+<html lang="es" dir="ltr">
   <head>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="css/registro.css">
@@ -19,7 +19,6 @@
   </header>
 
   <body>
-
     <h1 class="text-center">REGISTRO</h1>
 
     <?php
@@ -45,8 +44,15 @@
           header("Location: perfil.php");
           exit;
         }
+        // RECORDARME
+        if (isset($_POST["recordarme"])) {
+          setcookie("correo", $_POST["correo"]);
+          setcookie("pass", $_POST["pass"]);
+
+        }
+        $_SESSION["correo"] = $_POST["correo"];
       }
-     ?>
+    ?>
     <form action="registro.php" method="post">
       <div class="form-group row justify-content-center">
         <label class="col-5 col-md-3 col-lg-2 col-form-label" for="inputNombre">Nombre</label>
@@ -63,6 +69,12 @@
       <div class="form-group row justify-content-center">
         <label class="col-5 col-md-3 col-lg-2 col-form-label" for="inputContra">Contraseña</label><br>
         <input name="pass" type="password" class="form-control col-5" id="inputContra" required>
+      </div>
+      <div class="form-check row mb-4 justify-content-center">
+        <label class="col-12 text-center form-check-label" for="recordarme">
+          <input class="form-check-input" name="recordarme" type="checkbox" id="recordarme">
+          Recordarme
+        </label>
       </div>
       <div class="row justify-content-center">
         <button type="submit" class="btn btn-primary">Registrarse</button>

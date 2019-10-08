@@ -1,13 +1,13 @@
 <?php
   require_once("php/validaciones.php");
   require_once("php/incluir.php");
- ?>
+?>
+
 <!DOCTYPE html>
 <html lang="es" dir="ltr">
   <?php incluir_template("head", ["titulo" => "Contacto"]); ?>
   <body>
-
-      <?php incluir_template("header"); ?>
+    <?php incluir_template("header"); ?>
 
     <h1 class="text-center"><em>CONTACTO</em></h1>
 
@@ -39,6 +39,7 @@
         <button style="background-color:orange;" type="submit" class="btn btn-primary">Enviar</button>
       </div>
     </form><br>
+    
     <?php incluir_template("footer"); ?>
   </body>
 </html>

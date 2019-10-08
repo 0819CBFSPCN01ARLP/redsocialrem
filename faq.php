@@ -1,14 +1,14 @@
 <?php
   require_once("php/incluir.php");
- ?>
+?>
 
- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="es" dir="ltr">
   <?php incluir_template("head", ["titulo" => "FAQ"]); ?>
-<!-- encabezado -->
+  <!-- encabezado -->
   <?php incluir_template("header"); ?>
 
-<!-- Cuerpo -->
+  <!-- Cuerpo -->
   <body>
     <div class="accordion row" id="accordionExample">
       <div class="col-10">
