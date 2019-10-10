@@ -13,11 +13,11 @@
       }
     }
 
-    $hash = password_hash($_POST["pass"], PASSWORD_DEFAULT);
+    $hash = password_hash(trim($_POST["pass"]), PASSWORD_DEFAULT);
     $usuarios[] = [
-      "nombre" => $_POST["nombre"],
-      "apellido" => $_POST["apellido"],
-      "correo" => $_POST["correo"],
+      "nombre" => trim($_POST["nombre"]),
+      "apellido" => trim($_POST["apellido"]),
+      "correo" => trim($_POST["correo"]),
       "pass" => $hash
     ];
 
@@ -28,21 +28,21 @@
   function login() {
     $archivo = file_get_contents("usuarios.json");
     $usuarios = json_decode($archivo, true);
+    $validacionLogin = "";
 
     foreach ($usuarios as $usuario) {
       if ($usuario["correo"] === $_POST["correo"]) {
         $verificar = password_verify($_POST["pass"], $usuario["pass"]);
-        if ($verificar) {
-          header("Location: home.php");
-          return $usuario["pass"];
-          exit;
+        if ($verificar === true) {
+          return true;
         }
         else {
-          echo "La contraseña es incorrecta <br>";
-          exit;
+          $validacionLogin = "La contraseña es incorrecta <br>";
+          return $validacionLogin;
         }
       }
     }
-    echo "Correo electronico incorrecto";
+    $validacionLogin = "Correo electronico incorrecto";
+    return $validacionLogin;
   }
  ?>

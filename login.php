@@ -1,9 +1,16 @@
 <?php
   require_once("php/validaciones.php");
   require_once("php/usuarios.php");
-  if (isset($_COOKIE["correo"]) && isset($_COOKIE["pass"])) {
+  if (isset($_COOKIE["correo"])) {
     $correo = $_COOKIE["correo"];
-    $pass = $_COOKIE["pass"];
+  }
+
+  // SE FIJA SI EL USUARIO TIENE COOKIE DE RECORDAR
+  if (isset($_COOKIE["recordarme"])) {
+    $recordarme = "checked";
+  }
+  else {
+    $recordarme = "";
   }
 ?>
 
@@ -30,21 +37,31 @@
         if ($_POST) {
           if (isset($_POST["recordarme"])) {
             setcookie("correo", $_POST["correo"]);
-            setcookie("pass", $_POST["pass"]);
+            setcookie("recordarme", $recordarme = "checked");
           }
-          $_SESSION["correo"] = $_POST["correo"];
+          else {
+            setcookie("email", "", -1);
+            setcookie("recordarme", "", -1);
+          }
 
           $errores = [];
-          $errores[] = correo();
-          $errores[] = pass();
+          $errores = validarCorreo($errores);
+          $errores = validarPass($errores);
           $correo = trim($_POST["correo"]);
 
           foreach ($errores as $error) {
             echo $error;
           }
-          if ($errores == ["", ""]) {
-            login();
-            exit;
+          if (count($errores) === 0) {
+            $validar = login();
+            if ($validar === true) {
+              $_SESSION["correo"] = $_POST["correo"];
+              header("Location: home.php");
+              exit;
+            }
+            else {
+              echo $validar;
+            }
           }
         }
       ?>
@@ -58,11 +75,11 @@
           <input class="col-6" id="Email" type="Email" name="correo" value="<?=$correo; ?>" required placeholder="EMAIL">
         </div>
         <div class="form-group mb-2 row justify-content-center">
-          <input class ="col-6"id="Contraseña" type="password" name="pass" value="<?=$pass; ?>" required placeholder="contraseña">
+          <input class ="col-6"id="Contraseña" type="password" name="pass" value="" required placeholder="contraseña">
         </div>
         <div class="form-check row mb-4 justify-content-center">
           <label class="col-12 text-center form-check-label" for="recordarme">
-            <input class="form-check-input" name="recordarme" type="checkbox" id="recordarme">
+            <input class="form-check-input" name="recordarme" type="checkbox" id="recordarme" <?=$recordarme; ?>>
             Recordarme
           </label>
         </div>

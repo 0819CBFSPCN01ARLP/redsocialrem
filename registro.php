@@ -23,35 +23,38 @@
 
     <?php
       if ($_POST) {
-        $_SESSION["correo"] = $_POST["correo"];
+
 
         $errores = [];
-        $errores[] = nombre();
-        $errores[] = apellido();
-        $errores[] = correo();
-        $errores[] = pass();
+        $errores = validarNombre($errores);
+        $errores = validarApellido($errores);
+        $errores = validarCorreo($errores);
+        $errores = validarPass($errores);
         $nombre = trim($_POST["nombre"]);
         $apellido = trim($_POST["apellido"]);
         $correo = trim($_POST["correo"]);
 
-
-        foreach ($errores as $error) {
+        foreach ($errores as &$error) {
           echo $error;
         }
-        if ($errores == ["", "", "", ""]) {
+        if (count($errores) === 0) {
+
+          if (isset($_POST["recordarme"])) {
+            setcookie("correo", $_POST["correo"]);
+            setcookie("recordarme", $recordarme = "checked");
+          }
+          else {
+            setcookie("email", "", -1);
+            setcookie("recordarme", "", -1);
+          }
+
           nuevoUsuario();
           $_SESSION["correo"] = $_POST["correo"];
           header("Location: perfil.php");
           exit;
         }
-        // RECORDARME
-        if (isset($_POST["recordarme"])) {
-          setcookie("correo", $_POST["correo"]);
-          setcookie("pass", $_POST["pass"]);
-
-        }
-        $_SESSION["correo"] = $_POST["correo"];
       }
+
     ?>
     <form action="registro.php" method="post">
       <div class="form-group row justify-content-center">

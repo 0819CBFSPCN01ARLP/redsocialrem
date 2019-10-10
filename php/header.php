@@ -10,6 +10,11 @@
         <a class="menuLink nav-link" href="amigos.php"><ion-icon name="contacts"></ion-icon>Amigos</a>
         <a class="menuLink nav-link" href="home.php"><ion-icon name="home"></ion-icon>Home</a>
         <a class="menuLink nav-link" href="buscar.php"><ion-icon name="search"></ion-icon>Buscar</a>
+        <form class="" action="index.php" method="post">
+          <button class="btn btn-dark" type="submit" name="salir">
+            Cerrar sesión
+          </button>
+        </form>
       </div>
     </div>
   </nav>

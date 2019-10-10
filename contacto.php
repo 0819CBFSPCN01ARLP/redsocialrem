@@ -14,15 +14,15 @@
     <?php
       if ($_POST) {
         $errores = [];
-        $errores[] = correo();
-        $errores[] = text();
+        $errores = validarCorreo($errores);
+        $errores = validarText($errores);
         $text = trim($_POST["text"]);
         $correo = trim($_POST["correo"]);
 
         foreach ($errores as $error) {
           echo $error;
         }
-        if ($errores == ["", ""]) {
+        if (count($errores) === 0) {
           header("Location: home.php");
           exit;
         }
@@ -39,7 +39,7 @@
         <button style="background-color:orange;" type="submit" class="btn btn-primary">Enviar</button>
       </div>
     </form><br>
-    
+
     <?php incluir_template("footer"); ?>
   </body>
 </html>
