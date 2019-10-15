@@ -12,12 +12,12 @@
     <div class="col-4 float-right">
       <a class="col-10 d-none d-sm-block float-right menuLink nav-link" href="buscar.php"><ion-icon name="search"></ion-icon>Buscar</a>
     </div>
-      <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
-        <div class="navbar-nav">
-          <a class="menuLink nav-link" href="perfil.php"><ion-icon name="contact"></ion-icon>Mi Perfil</a>
-          <a class="menuLink nav-link" href="amigos.php"><ion-icon name="contacts"></ion-icon>Amigos</a>
-          <a class="menuLink nav-link" href="home.php"><ion-icon name="home"></ion-icon>Home</a>
-        </div>
+    <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+      <div class="navbar-nav">
+        <a class="menuLink nav-link" href="perfil.php"><ion-icon name="contact"></ion-icon>Mi Perfil</a>
+        <a class="menuLink nav-link" href="amigos.php"><ion-icon name="contacts"></ion-icon>Amigos</a>
+        <a class="menuLink nav-link" href="home.php"><ion-icon name="home"></ion-icon>Home</a>
       </div>
+    </div>
   </nav>
 </header>

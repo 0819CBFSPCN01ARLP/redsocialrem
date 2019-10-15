@@ -56,16 +56,16 @@
     </div>
     <br>
     <!-- publicaciones -->
-      <div class="container">
+    <div class="container">
       <section class = "col-lg-12 col-sm-12">
-          <div class="card w-100">
-            <div class="card-body w-100">
-              <img id="mi-foto" class="col-lg-2 col-md-3 col-sm-5" <img src="<?php echo "php/subidas/perfil" . $_SESSION["correo"] . ".jpg"; ?>">
-              <textarea class="w-100" name="name" rows="8">¿Qué estás pensando?</textarea>
-              <br>
-              <a href="#" style="background-color:#464655" class="btn btn-primary">Publicar</a>
-            </div>
+        <div class="card w-100">
+          <div class="card-body w-100">
+            <img id="mi-foto" class="col-lg-2 col-md-3 col-sm-5" <img src="<?php echo "php/subidas/perfil" . $_SESSION["correo"] . ".jpg"; ?>">
+            <textarea class="w-100" name="name" rows="8">¿Qué estás pensando?</textarea>
+            <br>
+            <a href="#" style="background-color:#464655" class="btn btn-primary">Publicar</a>
           </div>
+        </div>
       </section>
     </div>
   </body>
