@@ -3,7 +3,7 @@
   width: 100%;
 }
 .headerCartaAmigo{
-  border-color: #F77F00 !important;
+  border-color: #464655 !important;
   font-weight: bold;
 }
 .fotoAmigo{
@@ -18,8 +18,8 @@
   width: 8rem;
 }
 .btn-primary {
-  background-color: #F77F00 !important;
-  border-color: #F77F00 !important;
+  background-color: #464655 !important;
+  border-color: #464655 !important;
 }
 .publicaciones {
   float: right !important;

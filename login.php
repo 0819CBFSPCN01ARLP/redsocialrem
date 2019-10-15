@@ -25,7 +25,7 @@
   </head>
 
   <!-- encabezado -->
-  <header style="background-color:#6f42c1" class="jumbotron-fluid">
+  <header style="background-color:#464655" class="jumbotron-fluid">
     <a style="color:white;" id="registrate" href="registro.php">Registrate</a>
   </header>
 
@@ -84,14 +84,14 @@
           </label>
         </div>
         <div class="row justify-content-center">
-          <button type="submit" class="btn btn-primary">Iniciar Sesión</button>
+          <button style = "background-color:#464655" type="submit" class="btn btn-primary">Iniciar Sesión</button>
         </div>
       </form>
     </div>
   </body>
 
   <!-- Pie de pagina -->
-  <footer  style="background-color:#6f42c1" class="jumbotron-fluid">
+  <footer  style="background-color:#464655" class="jumbotron-fluid">
     <nav class="nav justify-content-center">
       <a style="color:white;" class=" nav-link" href="faq.php">Preguntas Frecuentes</a>
       <a style="color:white;" class="nav-link" href="contacto.php">Contacto</a>

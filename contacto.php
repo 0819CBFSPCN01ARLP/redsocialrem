@@ -36,7 +36,7 @@
         <textarea name="text" class="form-control col-5" id="inputMensaje" rows="3" required>MENSAJE</textarea>
       </div>
       <div class="row justify-content-center">
-        <button style="background-color:orange;" type="submit" class="btn btn-primary">Enviar</button>
+        <button style="background-color:#464655;" type="submit" class="btn btn-primary">Enviar</button>
       </div>
     </form><br>
 
