@@ -15,17 +15,22 @@
     <div class="container">
       <section class ="main row">
         <article class="col-lg-4 col-md-12 col-sm-12">
-          <?php if (isset($_SESSION["correo"])): ?>
-            <?php if (file_exists("php/subidas/perfil" . $_SESSION["correo"] . ".jpg")): ?>
-              <img id="mi-foto" class="col-lg-12 col-md-4 col-sm-9" <img src="<?php echo "php/subidas/perfil" . $_SESSION["correo"] . ".jpg"; ?>">
-            <?php else: ?>
-              <img id="mi-foto" class="col-md-4 col-sm-9" <img src="php/subidas/fotoPerfil.jpg">
-            <?php endif; ?>
-          <?php endif; ?>
-          <form class="col-lg-12 col-md-6" action="php/subirFotos.php" method="post" enctype="multipart/form-data">
-            <input type="file" name="archivo" id="archivo" >
-            <input type="submit" value="Subir foto perfil">
-          </form>
+          <div class="card w-100 mt-5 ml-auto">
+            <div class="card-body w-100">
+              <?php if (isset($_SESSION["correo"])): ?>
+                <?php if (file_exists("php/subidas/perfil" . $_SESSION["correo"] . ".jpg")): ?>
+                  <img id="mi-foto" class="col-lg-12 col-md-4 col-sm-9" <img src="<?php echo "php/subidas/perfil" . $_SESSION["correo"] . ".jpg"; ?>">
+                <?php else: ?>
+                  <img id="mi-foto" class="col-md-4 col-sm-9" <img src="php/subidas/fotoPerfil.jpg">
+                <?php endif; ?>
+              <?php endif; ?>
+              <p class = "ml-4"><b><?=$_SESSION["correo"]; ?></b></p>
+              <form class="col-lg-12 col-md-6" action="php/subirFotos.php" method="post" enctype="multipart/form-data">
+                <input class = "form-control-file" type="file" name="archivo" id="archivo"><br>
+                <input class = "btn" style="background-color:#464655; color:white" type="submit" value="Subir foto perfil">
+              </form>
+            </div>
+          </div>
         </article>
 
         <!-- carrusel -->
@@ -60,14 +65,15 @@
       <section class = "col-lg-12 col-sm-12">
         <div class="card w-100">
           <div class="card-body w-100">
-            <img id="mi-foto" class="col-lg-2 col-md-3 col-sm-5" <img src="<?php echo "php/subidas/perfil" . $_SESSION["correo"] . ".jpg"; ?>">
-            <textarea class="w-100" name="name" rows="8">¿Qué estás pensando?</textarea>
+            <img id="mi-foto" class="col-lg-2 col-md-3 col-sm-5 p-0 m-2" <img src="<?php echo "php/subidas/perfil" . $_SESSION["correo"] . ".jpg"; ?>">
+            <textarea class="col-sm-6 col-md-8 col-lg-9 mt-2" name="name" rows="1">¿Qué estás pensando?</textarea>
             <br>
-            <a href="#" style="background-color:#464655" class="btn btn-primary">Publicar</a>
+            <a href="#" style="background-color:#464655; color:white" class="btn mt-2 ml-3">Publicar</a>
           </div>
         </div>
       </section>
     </div>
+    <br><br>
   </body>
   <!-- Pie de pagina -->
   <?php incluir_template("footer") ?>

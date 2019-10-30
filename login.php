@@ -55,7 +55,7 @@
           if (count($errores) === 0) {
             $validar = login();
             if ($validar === true) {
-              $_SESSION["correo"] = $_POST["correo"];
+              $_SESSION["correo"] = trim($_POST["correo"]);
               header("Location: home.php");
               exit;
             }
