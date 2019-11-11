@@ -1,6 +1,8 @@
 <?php
   require_once("php/validaciones.php");
   require_once("php/usuarios.php");
+  require_once("db/pdo.php");
+
   if (isset($_COOKIE["correo"])) {
     $correo = $_COOKIE["correo"];
   }
@@ -53,7 +55,7 @@
             echo $error;
           }
           if (count($errores) === 0) {
-            $validar = login();
+            $validar = login($db);
             if ($validar === true) {
               $_SESSION["correo"] = trim($_POST["correo"]);
               header("Location: home.php");

@@ -1,38 +1,38 @@
 <?php
   session_start();
+  require_once("db/pdo.php");
 
-  function nuevoUsuario() {
-    $archivo = file_get_contents("usuarios.json");
-    $usuarios = json_decode($archivo, true);
+  function nuevoUsuario($db) {
+    $query = $db->prepare("SELECT email FROM users");
+    $query->execute();
+    $emails = $query->fetchAll(PDO::FETCH_ASSOC);
 
-    // VERIFICACION DE CORREO EXISTENTE
-    foreach ($usuarios as $usuario) {
-      if ($usuario["correo"] === $_POST["correo"]) {
+    foreach ($emails as $email) {
+      echo $email["email"] . "<br>";
+      if ($email["email"] === trim($_POST["correo"])) {
         echo "El correo electronico ya existe.";
         exit;
       }
     }
 
     $hash = password_hash(trim($_POST["pass"]), PASSWORD_DEFAULT);
-    $usuarios[] = [
-      "nombre" => trim($_POST["nombre"]),
-      "apellido" => trim($_POST["apellido"]),
-      "correo" => trim($_POST["correo"]),
-      "pass" => $hash
-    ];
+    $query = $db->prepare("INSERT INTO users (name, surname, email, password) VALUES(:nombre, :apellido, :correo, :pass)");
+    $query->bindValue(":nombre", trim($_POST["nombre"]));
+    $query->bindValue(":apellido", trim($_POST["apellido"]));
+    $query->bindValue(":correo", trim($_POST["correo"]));
+    $query->bindValue(":pass", $hash);
+    $query->execute();
 
-    $archivo = json_encode($usuarios);
-    file_put_contents("usuarios.json", $archivo);
   }
 
-  function login() {
-    $archivo = file_get_contents("usuarios.json");
-    $usuarios = json_decode($archivo, true);
-    $validacionLogin = "";
+  function login($db) {
+    $query = $db->prepare("SELECT email, password FROM users");
+    $query->execute();
+    $users = $query->fetchAll(PDO::FETCH_ASSOC);
 
-    foreach ($usuarios as $usuario) {
-      if ($usuario["correo"] === $_POST["correo"]) {
-        $verificar = password_verify($_POST["pass"], $usuario["pass"]);
+    foreach ($users as $user) {
+      if ($user["email"] === trim($_POST["correo"])) {
+        $verificar = password_verify(trim($_POST["pass"]), $user["password"]);
         if ($verificar === true) {
           return true;
         }
@@ -44,5 +44,6 @@
     }
     $validacionLogin = "Correo electronico incorrecto";
     return $validacionLogin;
+
   }
  ?>

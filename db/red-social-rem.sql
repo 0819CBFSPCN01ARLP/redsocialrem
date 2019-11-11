@@ -6,7 +6,7 @@ id INT AUTO_INCREMENT PRIMARY KEY,
 name VARCHAR (50) NOT NULL,
 surname VARCHAR (50) NOT NULL,
 email VARCHAR (100) NOT NULL UNIQUE,
-password VARCHAR (50) NOT NULL ,
+password VARCHAR (60) NOT NULL ,
 created_at DATE,
 updated_at DATE
 );
@@ -33,8 +33,7 @@ updated_at DATE
 
 CREATE TABLE posts (
 id INT AUTO_INCREMENT PRIMARY KEY,
-title VARCHAR (100) NOT NULL,
-text VARCHAR (500),
+text VARCHAR (500) NOT NULL,
 id_image INT,
 id_user INT NOT NULL,
 FOREIGN KEY (id_user) REFERENCES users(id),
@@ -66,3 +65,9 @@ FOREIGN KEY (id_comment) REFERENCES comments(id),
 created_at DATE,
 updated_at DATE
 );
+
+INSERT INTO users (name, surname, email, password)
+VALUES ("Emeli", "Pasini", "emelipasini@outlook.com", "password1");
+
+INSERT INTO users (name, surname, email, password)
+VALUES ("Mauricio", "Araguez", "araguezmauricio@hotmail.com", "password1");

@@ -1,6 +1,7 @@
 <?php
   require_once("php/validaciones.php");
   require_once("php/usuarios.php");
+  require_once("db/pdo.php");
 ?>
 
 <!DOCTYPE html>
@@ -48,7 +49,7 @@
             setcookie("recordarme", "", -1);
           }
 
-          nuevoUsuario();
+          nuevoUsuario($db);
           $_SESSION["correo"] = $_POST["correo"];
           header("Location: perfil.php");
           exit;

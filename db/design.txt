@@ -18,24 +18,15 @@ id_user(fk): entero sin signo NOT NULL
 
 POSTS
 id(pk): entero sin signo
-title: string NOT NULL
-<<<<<<< Updated upstream
-text: string
-id_image(fk): entero sin signo
-=======
 text: string NOT NULL
-id_image(fk): entero sin signo NOT NULL
->>>>>>> Stashed changes
+id_image(fk): entero sin signo
 id_user(fk): entero sin signo NOT NULL
+
 
 COMMENTS
 id(pk): entero sin signo
 text: string NOT NULL
-<<<<<<< Updated upstream
 id_image(fk): entero sin signo
-=======
-id_image(fk): entero sin signo NOT NULL
->>>>>>> Stashed changes
 id_user(fk): entero sin signo NOT NULL
 id_post(fk): entero sin signo NOT NULL
 

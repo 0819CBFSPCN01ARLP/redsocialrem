@@ -58,7 +58,7 @@
     if (empty($pass)) {
       $errores[] = "Falta completar la contraseña <br>";
     }
-    else if ((strlen($_POST["pass"]) < 9)) {
+    else if ((strlen($_POST["pass"]) < 8)) {
       $errores[] = "La contraseña debe contener al menos 8 caracteres <br>";
     }
     return $errores;
