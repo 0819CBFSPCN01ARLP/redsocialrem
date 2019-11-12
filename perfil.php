@@ -65,8 +65,11 @@
       <section class = "col-lg-12 col-sm-12">
         <div class="card w-100">
           <div class="card-body w-100">
-            <img id="mi-foto" class="col-lg-2 col-md-3 col-sm-5 p-0 m-2" <img src="<?php echo "php/subidas/perfil" . $_SESSION["correo"] . ".jpg"; ?>">
-            <textarea class="col-sm-6 col-md-8 col-lg-9 mt-2" name="name" rows="1">¿Qué estás pensando?</textarea>
+            <form class="col-lg-12 col-md-6" action="php/subirFotos.php" method="post" enctype="multipart/form-data">
+              <input id="input-b3" name="input-b3[]" type="file" class="file" multiple
+                data-show-upload="false" data-show-caption="true" data-msg-placeholder="Select {files} for upload...">
+              <textarea class="col-sm-6 col-md-8 col-lg-9 mt-2" name="name" rows="1" >¿Qué estás pensando? </textarea>
+            </form>
             <br>
             <a href="#" style="background-color:#464655; color:white" class="btn mt-2 ml-3">Publicar</a>
           </div>
