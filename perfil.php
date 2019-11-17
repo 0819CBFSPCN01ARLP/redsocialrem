@@ -1,6 +1,26 @@
 <?php
   require_once("php/incluir.php");
+  require_once("db/pdo.php");
   session_start();
+
+  $email = $_SESSION["correo"];
+
+  // CONSIGUE ID DE USUARIO
+  $q = $db->prepare("SELECT id FROM users WHERE email LIKE '$email'");
+  $q->execute();
+  $user = $q->fetch();
+  $userId = intval($user["id"]);
+
+  // TRAE LOS POSTS DE ESE USUARIO
+  $q = $db->prepare("SELECT id, text, id_image FROM posts WHERE id_user = $userId");
+  $q->execute();
+  $posts = $q->fetchAll(PDO::FETCH_ASSOC);
+
+  // TRAE LAS IMAGENES DE LOS POSTS
+  $q = $db->prepare("SELECT id, path FROM images WHERE id_user = $userId AND position = 'post'");
+  $q->execute();
+  $images = $q->fetchAll(PDO::FETCH_ASSOC);
+
 ?>
 
 <!DOCTYPE html>
@@ -60,21 +80,54 @@
       </section>
     </div>
     <br>
-    <!-- publicaciones -->
+    <!-- Subida de publicaciones -->
     <div class="container">
       <section class = "col-lg-12 col-sm-12">
         <div class="card w-100">
           <div class="card-body w-100">
-            <img id="mi-foto" class="col-lg-2 col-md-3 col-sm-5 p-0 m-2" <img src="<?php echo "php/subidas/perfil" . $_SESSION["correo"] . ".jpg"; ?>">
-            <textarea class="col-sm-6 col-md-8 col-lg-9 mt-2" name="name" rows="1">¿Qué estás pensando?</textarea>
-            <br>
-            <a href="#" style="background-color:#464655; color:white" class="btn mt-2 ml-3">Publicar</a>
+            <form class="col-lg-12 col-md-6" action="php/post.php" method="post" enctype="multipart/form-data">
+              <input name="photo" type="file" class="file" multiple
+                data-show-upload="false" data-show-caption="true" data-msg-placeholder="Seleccione una foto...">
+              <textarea class="col-sm-6 col-md-8 col-lg-9 mt-2" name="text" rows="1" placeholder="¿Qué estás pensando?"></textarea>
+              <br>
+              <button style="background-color:#464655; color:white" class="btn mt-2 ml-3" type="submit" name="post">Publicar</button>
+            </form>
           </div>
         </div>
       </section>
     </div>
     <br><br>
+
+    <!-- Publicaciones -->
+    <div class="container">
+      <section class = "col-lg-12 col-sm-12 mb-4">
+        <?php foreach ($posts as $post): ?>
+          <?php
+            foreach ($images as $image) {
+              if ($post["id_image"] === $image["id"]) {
+                $imagen = $image["path"];
+              }
+            }
+
+          ?>
+          <div class="d-flex align-items-end flex-column bd-highlight mb-3 card w-100" style="height: 200px;">
+            <div class="card-body w-100">
+              <?php if ($imagen != null): ?>
+                <img class="float-left" src="php/<?=$imagen; ?>" alt="">
+              <?php endif; ?>
+              <p><?=$post["text"]; ?></p>
+              <form class="" action="php/editar.php" method="post">
+                <input type="hidden" name="postId" value="<?=$post["id"]; ?>">
+                <button class="btn mt-2 ml-3" style="background-color:#464655; color:white" type="submit" name="editar">Editar</button>
+                <button class="btn mt-2 ml-3" style="background-color:#464655; color:white" type="submit" name="eliminar">Eliminar</button>
+              </form>
+            </div>
+          </div>
+        <?php endforeach; ?>
+      </div>
+    </section>
   </body>
+
   <!-- Pie de pagina -->
   <?php incluir_template("footer") ?>
 </html>

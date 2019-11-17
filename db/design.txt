@@ -1,0 +1,37 @@
+USERS
+id(pk): entero sin signo
+name: string NOT NULL
+surname: string NOT NULL
+email: string NOT NULL UNIQUE
+password: string NOT NULL
+
+FRIENDS
+id(pk): entero sin signo
+id_user(fk): entero sin signo NOT NULL
+id_friend(fk): entero sin signo NOT NULL
+
+IMAGES
+id(pk): entero sin signo
+position: string NOT NULL
+path: string NOT NULL
+id_user(fk): entero sin signo NOT NULL
+
+POSTS
+id(pk): entero sin signo
+text: string NOT NULL
+id_image(fk): entero sin signo
+id_user(fk): entero sin signo NOT NULL
+
+
+COMMENTS
+id(pk): entero sin signo
+text: string NOT NULL
+id_image(fk): entero sin signo
+id_user(fk): entero sin signo NOT NULL
+id_post(fk): entero sin signo NOT NULL
+
+ANSWERS
+id(pk): entero sin signo
+answer: string NOT NULL
+id_user(fk): entero sin signo NOT NULL
+id_comment(fk): entero sin signo NOT NULL
