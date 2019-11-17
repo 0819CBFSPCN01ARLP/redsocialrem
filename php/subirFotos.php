@@ -37,7 +37,7 @@
   }
   else {
     if (move_uploaded_file($_FILES["archivo"]["tmp_name"], $archivo)) {
-        echo "El archivo ". basename( $_FILES["archivo"]["name"]). " ha sido subido exitosamente.";
+        header("Location: ../perfil.php");
     }
     else {
         echo "Lo siento, ocurrio un error al subir tu archivo.";
