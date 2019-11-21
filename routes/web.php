@@ -11,10 +11,34 @@
 |
 */
 
+Route::get('login', function () {
+    return view('login');
+});
+
+Route::get('registro', function () {
+    return view('register');
+});
+
+Route::get('perfil', function () {
+    return view('perfil');
+});
+
+Route::get('preguntas-frecuentes', function () {
+    return view('preguntas-frecuentes');
+});
+
+Route::get('amigos', function () {
+    return view('amigos');
+});
+
+Route::get('home', function () {
+    return view('home');
+});
+
+Route::get('contacto', function () {
+    return view('contacto');
+});
+
 Route::get('/', function () {
     return view('welcome');
 });
-
-Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');
