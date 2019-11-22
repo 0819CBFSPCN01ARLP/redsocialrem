@@ -1,5 +1,13 @@
 @extends('app')
 
+@section("title")
+  Preguntas
+@endsection
+
+@section("css")
+  "/css/faq.css"
+@endsection
+
 @section('content')
 
   <div class="accordion row" id="accordionExample">

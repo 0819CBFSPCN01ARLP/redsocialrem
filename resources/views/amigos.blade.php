@@ -1,5 +1,13 @@
 @extends('app')
 
+@section("title")
+  Amigos
+@endsection
+
+@section("css")
+  "/css/amigos.css"
+@endsection
+
 @section('content')
   <h1>AMIGOS</h1>
   <br>
@@ -8,7 +16,7 @@
     <div class="card mx-auto" style="max-width: 540px;">
       <div class="row no-gutters p-3">
         <div class="col-11 col-md-4 mx-auto">
-          <img src="img/gato.png" class="card-img" alt="...">
+          <img src="gato.png" class="card-img" alt="...">
         </div>
         <div class="col-11 col-md-6 p-1">
           <div class="card-body">
@@ -23,7 +31,7 @@
     <div class="card mx-auto" style="max-width: 540px;">
       <div class="row no-gutters p-3">
         <div class="col-11 col-md-4 mx-auto">
-          <img src="img/gato.png" class="card-img" alt="...">
+          <img src="gato.png" class="card-img" alt="...">
         </div>
         <div class="col-11 col-md-6 p-1">
           <div class="card-body">
@@ -38,7 +46,7 @@
     <div class="card mx-auto" style="max-width: 540px;">
       <div class="row no-gutters p-3">
         <div class="col-11 col-md-4 mx-auto">
-          <img src="img/gato.png" class="card-img" alt="...">
+          <img src="gato.png" class="card-img" alt="...">
         </div>
         <div class="col-11 col-md-6 p-1">
           <div class="card-body">
@@ -53,7 +61,7 @@
     <div class="card mx-auto" style="max-width: 540px;">
       <div class="row no-gutters p-3">
         <div class="col-11 col-md-4 mx-auto">
-          <img src="img/gato.png" class="card-img" alt="...">
+          <img src="gato.png" class="card-img" alt="...">
         </div>
         <div class="col-11 col-md-6 p-1">
           <div class="card-body">
@@ -68,7 +76,7 @@
     <div class="card mx-auto" style="max-width: 540px;">
       <div class="row no-gutters p-3">
         <div class="col-11 col-md-4 mx-auto">
-          <img src="img/gato.png" class="card-img" alt="...">
+          <img src="gato.png" class="card-img" alt="...">
         </div>
         <div class="col-11 col-md-6 p-1">
           <div class="card-body">
@@ -83,7 +91,7 @@
     <div class="card mx-auto" style="max-width: 540px;">
       <div class="row no-gutters p-3">
         <div class="col-11 col-md-4 mx-auto">
-          <img src="img/gato.png" class="card-img" alt="...">
+          <img src="gato.png" class="card-img" alt="...">
         </div>
         <div class="col-11 col-md-6 p-1">
           <div class="card-body">
@@ -97,5 +105,5 @@
   </section>
   <!-- Fin de amigos -->
   <br>
-  
+
 @endsection()

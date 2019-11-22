@@ -1,5 +1,13 @@
 @extends('app')
 
+@section("title")
+  Contacto
+@endsection
+
+@section("css")
+  "/css/contacto.css"
+@endsection
+
 @section('content')
 
   <h1 class="text-center"><em>CONTACTO</em></h1>
@@ -15,4 +23,4 @@
       <button style="background-color:#464655;" type="submit" class="btn btn-primary">Enviar</button>
     </div>
   </form><br>
-@endsection()
+@endsection

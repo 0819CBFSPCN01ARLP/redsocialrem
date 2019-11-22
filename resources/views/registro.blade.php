@@ -1,5 +1,13 @@
 @extends('app')
 
+@section("title")
+  Registro
+@endsection
+
+@section("css")
+  "/css/registro.css"
+@endsection
+
 @section('content')
   <form action="registro.php" method="post">
     <div class="form-group row justify-content-center">

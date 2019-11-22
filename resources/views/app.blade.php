@@ -17,6 +17,7 @@
     <!-- Hojas de estilo -->
     <link rel="stylesheet" href="/css/master.css">
     <link rel="stylesheet" href="/css/app.css">
+    <link rel="stylesheet" href=@yield("css")>
 
     <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-fileinput/5.0.6/css/fileinput.min.css" media="all" rel="stylesheet" type="text/css" />
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
@@ -32,28 +33,42 @@
   <body>
 
     <header class="jumbotron-fluid">
-      <nav>
-        <img style = "margin-left :20px" class="logo float-right" src="/logo.png" alt="logo">
-        <button  class="navbar-toggler menuLink" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"><i class="fas fa-bars"></i></span>
-        </button>
-        <form style ="padding-top:10px" class="float-right" action="index.php" method="post">
-          <button class="btn btn-dark" type="submit" name="salir">
-            Cerrar sesión
+      @guest
+        <nav>
+          <a class="menuLink nav-link" href="/login">Login</a>
+          <a class="menuLink nav-link" href="/registro">Registro</a>
+        </nav>
+      @else
+        <nav>
+          <img style = "margin-left :20px" class="logo float-right" src="/logo.png" alt="logo">
+          <button  class="navbar-toggler menuLink" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"><i class="fas fa-bars"></i></span>
           </button>
-        </form>
-        <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
-          <div class="navbar-nav">
-            <a class="menuLink nav-link" href="perfil.php"><ion-icon name="contact"></ion-icon>Mi Perfil</a>
-            <a class="menuLink nav-link" href="amigos.php"><ion-icon name="contacts"></ion-icon>Amigos</a>
-            <a class="menuLink nav-link" href="home.php"><ion-icon name="home"></ion-icon>Home</a>
+          <form id="logout-form" action="{{ route('logout') }}" method="POST" style ="padding-top:10px" class="float-right">
+              @csrf
+              <button class="btn btn-dark" type="submit" name="salir">
+                Cerrar sesión
+              </button>
+          </form>
+          {{-- <form style ="padding-top:10px" class="float-right" action="index.php" method="post">
+          </form> --}}
+          <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+            <div class="navbar-nav">
+              <a class="menuLink nav-link" href=""><ion-icon name="contact"></ion-icon>Mi Perfil</a>
+              <a class="menuLink nav-link" href=""><ion-icon name="contacts"></ion-icon>Amigos</a>
+              <a class="menuLink nav-link" href=""><ion-icon name="home"></ion-icon>Home</a>
+            </div>
           </div>
-        </div>
-      </nav>
+        </nav>
+      @endguest
     </header>
+    <br><br>
 
-    @yield("content")
+    <main>
+      @yield("content")
+    </main>
 
+    <br><br>
     <footer class="jumbotron-fluid">
       <nav class="nav justify-content-center my-3">
         <a class="nav-link menuLink" href="faq.php"><ion-icon name="help"></ion-icon>Preguntas Frecuentes</a>

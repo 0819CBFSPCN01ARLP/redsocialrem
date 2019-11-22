@@ -11,15 +11,9 @@
 |
 */
 
-Route::get('login', function () {
-    return view('login');
-});
+Auth::routes();
 
-Route::get('registro', function () {
-    return view('registro');
-});
-
-Route::get('perfil', function () {
+Route::get('/perfil', function () {
     return view('perfil');
 });
 
@@ -40,5 +34,5 @@ Route::get('contacto', function () {
 });
 
 Route::get('/', function () {
-    return view('app');
+    return view('home');
 });
