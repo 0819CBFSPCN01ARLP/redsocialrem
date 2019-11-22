@@ -16,7 +16,7 @@ Route::get('login', function () {
 });
 
 Route::get('registro', function () {
-    return view('register');
+    return view('registro');
 });
 
 Route::get('perfil', function () {
