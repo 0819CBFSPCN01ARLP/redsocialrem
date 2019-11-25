@@ -13,50 +13,70 @@
     <div class="container">
       <section class ="modal-dialog text-center">
         <article class="col-8 col-md-12 col-sm-8">
-
           <div class="card w-100 mt-5 ml-auto">
             <div class="card-body w-100">
-                  <img id="mi-foto" class="col-md-4 col-sm-9" <img src="php/subidas/fotoPerfil.jpg">
-              <p class = "ml-4"><b></b></p>
-              <form class="col-lg-12 col-md-6" action="php/subirFotos.php" method="post" enctype="multipart/form-data">
-                <input class = "form-control-file" type="file" name="archivo" id="archivo"><br>
-                <input class = "btn" style="background-color:#464655; color:white" type="submit" value="Subir foto perfil">
+              @forelse ($images as $image)
+                @if ($image->position == "fotoPerfil")
+                  <img src="storage/{{$image->path}}" alt="">
+                @endif
+              @empty
+                <img id="mi-foto" class="col-md-4 col-sm-9" src="fotoPerfil.jpg">
+              @endforelse
+              <p class = "ml-4"><b>Nombre Apellido</b></p>
+              <form class="col-lg-12 col-md-6" action="profilepicture" method="post" enctype="multipart/form-data">
+                @csrf
+                <input class = "form-control-file" type="file" name="profilePicture" id="archivo"><br>
+                <input class = "btn" style="background-color:#464655; color:white" type="submit" value="Subir foto">
               </form>
             </div>
           </div>
         </article>
-        </section
+      </section>
 
-        <!-- Subida de publicaciones -->
-        <div class="container">
-          <section class = "col-lg-12 col-sm-12">
-            <div class="card w-100">
-              <div class="card-body w-100">
-                <form class="col-lg-12 col-md-6" action="php/post.php" method="post" enctype="multipart/form-data">
-                  <input name="photo" type="file" class="file" multiple
-                    data-show-upload="false" data-show-caption="true" data-msg-placeholder="Seleccione una foto...">
-                  <textarea class="col-sm-6 col-md-8 col-lg-9 mt-2" name="text" rows="1" placeholder="¿Qué estás pensando?"></textarea>
-                  <br>
-                  <button style="background-color:#464655; color:white" class="btn mt-2 ml-3" type="submit" name="post">Publicar</button>
-                </form>
-              </div>
+      <!-- Subida de publicaciones -->
+      <div class="container">
+        <section class = "col-lg-12 col-sm-12">
+          <div class="card w-100">
+            <div class="card-body w-100">
+              <form class="col-lg-12 col-md-6" action="newpost" method="post" enctype="multipart/form-data">
+                @csrf
+                <input name="image" type="file" class="file" multipledata-show-upload="false" data-show-caption="true" data-msg-placeholder="Seleccione una foto...">
+                <textarea class="col-sm-6 col-md-8 col-lg-9 mt-2" name="text" rows="1" placeholder="¿Qué estás pensando?"></textarea>
+                <br>
+                <button style="background-color:#464655; color:white" class="btn mt-2 ml-3" type="submit" name="post">Publicar</button>
+              </form>
             </div>
-          </section>
-        </div>
-
-        <!-- Publicaciones -->
-        <div class="container">
-          <section class = "col-lg-12 col-sm-12 mb-4">
-              <div class="d-flex align-items-end flex-column bd-highlight mb-3 card w-100" style="height: 200px;">
-                <div class="card-body w-100">
-                    <img class="float-left" src="php" alt="">
-                  <form class="" action="php/editar.php" method="post">
-                    <input type="hidden" name="postId" value="">
-                    <button class="btn mt-2 ml-3" style="background-color:#464655; color:white" type="submit" name="editar">Editar</button>
-                    <button class="btn mt-2 ml-3" style="background-color:#464655; color:white" type="submit" name="eliminar">Eliminar</button>
-                  </form>
-                </div>
-              </div>
           </div>
         </section>
+      </div>
+      <br><br>
+
+      <!-- Publicaciones -->
+      <div class="container">
+        <section class = "col-lg-12 col-sm-12 mb-4">
+          @forelse ($posts as $post)
+            <div class="d-flex align-items-end flex-column bd-highlight mb-3 card w-100" style="height: 200px;">
+              <div class="card-body w-100">
+                @foreach ($images as $image)
+                  @if ($post->id_image == $image->id)
+                    <img src="storage/{{$image->path}}" alt="">
+                  @endif
+                @endforeach
+                <p>{{$post->text}}</p>
+                <form class="" action="editarpost" method="post">
+                  @csrf
+                  <input type="hidden" name="post" value="{{$post->id}}">
+                  <button type="submit" name="editar" class="btn mt-2 ml-3" style="background-color:#464655">Editar</button>
+                  <button type="submit" name="eliminar" class="btn mt-2 ml-3" style="background-color:#464655">Eliminar</button>
+                </form>
+                @empty
+                  <p>Aún no hay publicaciones.</p>
+              </div>
+            </div>
+            <br><br>
+          @endforelse
+        </section>
+      </div>
+
+    </div>
   @endsection
