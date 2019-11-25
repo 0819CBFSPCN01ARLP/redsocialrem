@@ -11,15 +11,12 @@
   @section('content')
     <!-- foto perfil -->
     <div class="container">
-      <section class ="main row">
-        <article class="col-lg-4 col-md-12 col-sm-12">
+      <section class ="modal-dialog text-center">
+        <article class="col-8 col-md-12 col-sm-8">
+
           <div class="card w-100 mt-5 ml-auto">
             <div class="card-body w-100">
-
-                  <img id="mi-foto" class="col-lg-12 col-md-4 col-sm-9" <img src="">
-
                   <img id="mi-foto" class="col-md-4 col-sm-9" <img src="php/subidas/fotoPerfil.jpg">
-
               <p class = "ml-4"><b></b></p>
               <form class="col-lg-12 col-md-6" action="php/subirFotos.php" method="post" enctype="multipart/form-data">
                 <input class = "form-control-file" type="file" name="archivo" id="archivo"><br>
@@ -28,6 +25,7 @@
             </div>
           </div>
         </article>
+        </section
 
         <!-- Subida de publicaciones -->
         <div class="container">
