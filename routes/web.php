@@ -32,21 +32,17 @@ Route::get('contacto', function () {
     return view('contacto');
 });
 
-Route::get("editarpost", function() {
-    return view("editarpost");
-});
-
 Route::get('/', function () {
     return view('home');
 });
 
+Route::get("/post/{id}/editar", "PostController@editarPost");
+
 // POR POST
 Route::post("profilepicture", "UserController@newProfilePicture");
 
-Route::post("newpost", "UserController@newPost");
+Route::post("newpost", "PostController@newPost");
 
-Route::post("editarpost", "UserController@editarPost");
+Route::post("/post/{id}/eliminar", "PostController@eliminarPost");
 
-Route::post("eliminarpost", "UserController@eliminarPost");
-
-Route::post("guardarcambios", "UserController@guardarCambios");
+Route::post("guardarcambios", "PostController@guardarCambios");
