@@ -5,16 +5,23 @@ section img {
   padding: 20px;
   width: 8rem;
 }
-section #fotos-amigos{
-  border: solid 1px black;
-  background-color: yellow;
+section textarea #comentarios{
+margin-left: 50px;
 }
-section div #amigo{
-  border-radius: 50%;
+#banner{
+  background-image: url(/banner.jpg);
 }
-#mi-foto-publicaciones{
-  margin-bottom: 2px;
-  margin-top: 2px;
-  border-radius:50%;
-  float: left;
+#camarita{
+  margin-left: 20px;
+  margin-top: 20px;
+  transition:transform 0.5s;
+}
+#camarita:hover{
+  transform: scale(3.5);
+}
+#perfil #carta  {
+opacity: 100%;
+height: 100%;
+width: 500px;
+
 }
