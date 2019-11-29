@@ -25,18 +25,24 @@
     </aside>
 
     <section class="publicaciones col-12 col-md-7 mt-5">
-
-      <section class="nuevaPublicacion">
-        <div class="card w-100">
-          <div class="card-body w-100">
-            <img class="fotoPerfil" src="gato.png" alt="foto de perfil">
-            <textarea class="w-100" name="name" rows="8">¿Qué estás pensando?</textarea>
-            <br>
-            <a href="#" class="btn btn-primary">Publicar</a>
+      
+      <!-- Subida de publicaciones -->
+      <div class="container">
+        <section class = "col-lg-12 col-sm-12">
+          <div class="card w-100">
+            <div class="card-body w-100">
+              <form class="col-lg-12 col-md-6" action="newpost" method="post" enctype="multipart/form-data">
+                @csrf
+                <input name="image" type="file" class="file" multipledata-show-upload="false" data-show-caption="true" data-msg-placeholder="Seleccione una foto...">
+                <textarea class="col-sm-6 col-md-8 col-lg-9 mt-2" name="text" rows="1" placeholder="¿Qué estás pensando?"></textarea>
+                <br>
+                <button style="background-color:#464655; color:white" class="btn mt-2 ml-3" type="submit" name="post">Publicar</button>
+              </form>
+            </div>
           </div>
-        </div>
-        <br>
-      </section>
+        </section>
+      </div>
+      <br><br>
 
       <section class="">
         <div class="card w-100 bg-light mb-3">
@@ -54,6 +60,7 @@
 
   </div>
 @endsection
+
 
 
 {{-- <div class="container">

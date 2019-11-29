@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use App\User;
+use App\Image;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
@@ -64,11 +65,21 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        return User::create([
+        $user = User::create([
             'name' => $data['name'],
             'email' => $data['email'],
             'surname' => $data['surname'],
             'password' => Hash::make($data['password']),
         ]);
+
+        // Crea una imagen de perfil por defecto
+        $image = new Image();
+        $image->position = "fotoPerfil";
+        $image->path = "fotoPerfil.jpg";
+        $image->id_user = $user->id;
+        $image->save();
+
+        return $user;
     }
+
 }

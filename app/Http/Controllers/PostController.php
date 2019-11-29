@@ -11,7 +11,7 @@ class PostController extends Controller
 {
   public function newPost(Request $req) {
     $rules = [
-      "image" => "file|required",
+      "image" => "file",
       "text" => "string|max:255|required"
     ];
     $messages = [

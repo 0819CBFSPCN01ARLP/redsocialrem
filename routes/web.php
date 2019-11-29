@@ -14,7 +14,9 @@
 Auth::routes();
 
 // POR GET
-Route::get('/perfil', "UserController@profile");
+Route::get('/miperfil', "UserController@profile");
+
+Route::get('/perfil/{id}', 'UserController@friend');
 
 Route::get('preguntas-frecuentes', function () {
     return view('preguntas-frecuentes');
