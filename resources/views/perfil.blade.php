@@ -10,7 +10,6 @@
 
   @section('content')
     <!-- foto perfil -->
-<<<<<<< HEAD
 
     <div id=banner class="">
     <i id=camarita class="fas fa-camera-retro"></i>
@@ -31,7 +30,6 @@
         <div class="container">
           <section class = "col-lg-12 col-sm-12">
             <div class="card w-100">
-=======
     <main>
       @if(count($errors) > 0)
         <div class="alert alert-danger">
@@ -87,11 +85,10 @@
       <br><br>
 
       <!-- Publicaciones -->
-      {{-- <div class="container">
+      {{-- <!-- <div class="container">
         <section class = "col-lg-12 col-sm-12 mb-4">
           @forelse ($posts as $post)
             <div class="d-flex align-items-end flex-column bd-highlight mb-3 card w-100" style="height: 200px;">
->>>>>>> 9411069a53b62634edc370051ade2458d836ed12
               <div class="card-body w-100">
                 @foreach ($images as $image)
                   @if ($post->id_image == $image->id)
@@ -112,10 +109,9 @@
                   <p>Aún no hay publicaciones.</p>
               </div>
             </div>
-<<<<<<< HEAD
           </section>
         </div>
-        <br>
+        <br> --> --}}
 
         <!-- Publicaciones -->
 
@@ -154,40 +150,4 @@
   </div>
 </div>
 
-=======
-            <br><br>
-          @endforelse
-        </section>
-      </div> --}}
-
-      <div class="container">
-        <section class = "col-lg-12 col-sm-12 mb-4">
-          @forelse ($posts as $post)
-            <div class="d-flex align-items-end flex-column bd-highlight mb-3 card w-100" style="height: 200px;">
-              <div class="card-body w-100">
-                @foreach ($images as $image)
-                  @if ($post->id_image == $image->id)
-                    <img src="storage/{{$image->path}}" alt="">
-                  @endif
-                @endforeach
-                <p>{{$post->text}}</p>
-                <form action="post/{{$post->id}}/editar" method="get">
-                  @csrf
-                  <button type="submit" class="btn mt-2 ml-3" style="background-color:#464655">Editar</button>
-                </form>
-                <form action="post/{{$post->id}}/eliminar" method="post">
-                  @csrf
-                  <button type="submit" name="eliminar" class="btn mt-2 ml-3" style="background-color:#464655">Eliminar</button>
-                </form>
-              </div>
-            </div>
-          @empty
-            <p>Aún no hay publicaciones.</p>
-            <br><br>
-          @endforelse
-        </section>
-      </div>
-
-    </main>
->>>>>>> 9411069a53b62634edc370051ade2458d836ed12
   @endsection
