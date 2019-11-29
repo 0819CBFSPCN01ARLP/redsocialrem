@@ -3,6 +3,8 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use App\Image;
+use App\User;
 
 class Post extends Model
 {

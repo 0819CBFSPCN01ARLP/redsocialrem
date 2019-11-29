@@ -13,9 +13,8 @@
 
 Auth::routes();
 
-Route::get('/perfil', function () {
-    return view('perfil');
-});
+// POR GET
+Route::get('/perfil', "UserController@profile");
 
 Route::get('preguntas-frecuentes', function () {
     return view('preguntas-frecuentes');
@@ -36,3 +35,14 @@ Route::get('contacto', function () {
 Route::get('/', function () {
     return view('home');
 });
+
+Route::get("/post/{id}/editar", "PostController@editarPost");
+
+// POR POST
+Route::post("profilepicture", "UserController@newProfilePicture");
+
+Route::post("newpost", "PostController@newPost");
+
+Route::post("/post/{id}/eliminar", "PostController@eliminarPost");
+
+Route::post("guardarcambios", "PostController@guardarCambios");
