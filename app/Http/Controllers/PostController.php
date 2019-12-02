@@ -36,7 +36,7 @@ class PostController extends Controller
     $post->id_user = $user->id;
     $post->id_image = $image->id;
     $post->save();
-    return redirect("perfil");
+    return redirect("miperfil");
   }
 
   public function editarPost($id) {
@@ -77,7 +77,7 @@ class PostController extends Controller
       $post->text = $req["text"];
       $post->save();
     }
-    return redirect("perfil");
+    return redirect("miperfil");
   }
 
   public function eliminarPost($id) {
@@ -87,6 +87,6 @@ class PostController extends Controller
     $image = $collection->first();
     $post->delete();
     $image->delete();
-    return redirect("perfil");
+    return redirect("miperfil");
   }
 }

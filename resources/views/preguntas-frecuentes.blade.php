@@ -4,9 +4,7 @@
   Preguntas
 @endsection
 
-@section("css")
-  "/css/faq.css"
-@endsection
+@section("css","/css/faq.css")
 
 @section('content')
 

@@ -54,6 +54,6 @@ class UserController extends Controller
     $name = basename($path);
     $photo->path = $name;
     $photo->save();
-    return redirect("perfil");
+    return redirect("miperfil");
   }
 }

@@ -4,9 +4,7 @@
   Editar post
 @endsection
 
-@section("css")
-  "/css/perfil.css"
-@endsection
+@section("css","/css/perfil.css")
 
 @section('content')
   @if(count($errors) > 0)

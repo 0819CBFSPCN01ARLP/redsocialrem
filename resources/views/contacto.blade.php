@@ -4,9 +4,7 @@
   Contacto
 @endsection
 
-@section("css")
-  "/css/contacto.css"
-@endsection
+@section("css","/css/contacto.css")
 
 @section('content')
 

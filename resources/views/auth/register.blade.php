@@ -4,9 +4,7 @@
   Registro
 @endsection
 
-@section("css")
-  "/css/registro.css"
-@endsection
+@section("css","/css/registro.css")
 
 @section('content')
 <div class="container">

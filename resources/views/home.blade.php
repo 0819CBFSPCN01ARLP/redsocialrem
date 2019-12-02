@@ -4,9 +4,7 @@
   Home
 @endsection
 
-@section("css")
-  "/css/home.css"
-@endsection
+@section("css","/css/home.css")
 
 @section('content')
   <div class="cuerpo row justify-content-center">
@@ -25,7 +23,7 @@
     </aside>
 
     <section class="publicaciones col-12 col-md-7 mt-5">
-      
+
       <!-- Subida de publicaciones -->
       <div class="container">
         <section class = "col-lg-12 col-sm-12">

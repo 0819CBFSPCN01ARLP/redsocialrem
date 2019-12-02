@@ -4,9 +4,7 @@
   Amigos
 @endsection
 
-@section("css")
-  "/css/amigos.css"
-@endsection
+@section("css","/css/amigos.css")
 
 @section('content')
   <h1>AMIGOS</h1>
