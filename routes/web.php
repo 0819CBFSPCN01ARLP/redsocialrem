@@ -14,29 +14,21 @@
 Auth::routes();
 
 // POR GET
+Route::get('/', "UserController@home");
+
 Route::get('/miperfil', "UserController@profile");
 
-Route::get('/perfil/{id}', 'UserController@friend');
+Route::get('/perfil/{id}', 'UserController@users');
 
-Route::get('preguntas-frecuentes', function () {
-    return view('preguntas-frecuentes');
-});
+Route::get("usuarios", "UserController@usuarios");
 
-Route::get('amigos', function () {
-    return view('amigos');
-});
+Route::get("preguntas-frecuentes", "UserController@faq");
 
-Route::get('home', function () {
-    return view('home');
-});
+Route::get("amigos", "UserController@amigos");
 
-Route::get('contacto', function () {
-    return view('contacto');
-});
+Route::get("home", "UserController@home");
 
-Route::get('/', function () {
-    return view('home');
-});
+Route::get("contacto", "UserController@contacto");
 
 Route::get("/post/{id}/editar", "PostController@editarPost");
 

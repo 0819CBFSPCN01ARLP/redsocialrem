@@ -5,6 +5,8 @@ namespace App;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use App\Post;
+use App\Image;
 
 class User extends Authenticatable
 {
@@ -12,6 +14,12 @@ class User extends Authenticatable
 
     public function friends() {
       return $this->belongsToMany("App\User", "friends", "id_user", "id_friend");
+    }
+    public function posts() {
+      return $this->hasMany("App\Post", "id_user");
+    }
+    public function images() {
+      return $this->hasMany("App\Image", "id_user");
     }
 
     /**

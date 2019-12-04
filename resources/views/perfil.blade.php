@@ -9,6 +9,7 @@
 @section('content')
   <main>
 
+    {{-- Errores --}}
     @if(count($errors) > 0)
       <div class="alert alert-danger">
         <ul>
@@ -19,6 +20,7 @@
       </div>
     @endif
 
+    {{-- Banner y foto de perfil --}}
     <div id=banner class="">
       <i id=camarita class="fas fa-camera-retro"></i>
       {{-- no se puede usar modal-dialog porque rompe el examinar para subir una nueva foto de perfil --}}
@@ -40,6 +42,7 @@
         </article>
       </section>
     </div>
+    <br><br>
 
     <!-- Subida de publicaciones -->
     <div class="container">
@@ -93,13 +96,13 @@
                 <button class="btn mt-2 ml-3" style="background-color:#464655; color:white ; margin-bottom:35px" type="submit" name="editar">responder</button>
 
                 <!-- respuestas -->
-                <div class="col-10 col-md-10 col-sm-10 container">
+                {{-- <div class="col-10 col-md-10 col-sm-10 container">
                   <img style="border-radius:50%" class="float-left" src="gato.png" alt="">
                   <h4>Nombre usuario</h4>
                   <p>Esto es una respuesta a un comentario</p>
                   <button class="btn mt-2 ml-3" style="background-color:#464655; color:white ; margin-bottom:35px" type="submit" name="editar">responder</button>
                 </div>
-                <br>
+                <br> --}}
 
               </div>
             </div>
