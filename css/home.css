@@ -1,0 +1,29 @@
+.cuerpo {
+  overflow: hidden;
+  width: 100%;
+}
+.headerCartaAmigo{
+  border-color: #464655 !important;
+  font-weight: bold;
+}
+.fotoAmigo{
+  width: 5rem;
+}
+.fotoPerfil {
+  border-radius: 100% !important;
+  margin-bottom: 10px;
+  margin-top: 10px;
+  float: left;
+  padding: 20px;
+  width: 8rem;
+}
+.btn-primary {
+  background-color: #464655 !important;
+  border-color: #464655 !important;
+}
+.publicaciones {
+  float: right !important;
+}
+
+
+}

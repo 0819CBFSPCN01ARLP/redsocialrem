@@ -1,0 +1,20 @@
+h1 {
+  padding-left: 2rem;
+  padding-top: 2rem;
+}
+section {
+  overflow: hidden;
+}
+div.row {
+  margin-left: -7px;
+}
+div.card {
+  float: left;
+  margin-bottom: 2rem !important;
+}
+img {
+  border-radius: 100% !important;
+}
+button #btn-add{
+  margin-left: 20px !important;
+}

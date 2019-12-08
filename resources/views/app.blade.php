@@ -23,6 +23,12 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-fileinput/5.0.6/themes/fa/theme.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-fileinput/5.0.6/js/locales/(lang).js"></script>
   </head>
+
+
+
+@php
+    use Illuminate\Database\Eloquent\Model;
+@endphp
   <body>
 
     <header class="jumbotron-fluid">
@@ -49,7 +55,7 @@
               <a class="menuLink nav-link" href={{url('/miperfil')}}><ion-icon name="contact"></ion-icon>Mi Perfil</a>
               <a class="menuLink nav-link" href={{url('/amigos')}}><ion-icon name="contacts"></ion-icon>Amigos</a>
               <a class="menuLink nav-link" href={{url('/home')}}><ion-icon name="home"></ion-icon>Home</a>
-              <a class="menuLink nav-link" href={{url('/usuarios')}}>Usuarios</a>
+              <a class="menuLink nav-link" href={{url('/usuarios')}}><i class="fas fa-user-edit">Usuarios</i></a>
             </div>
           </div>
         </nav>
