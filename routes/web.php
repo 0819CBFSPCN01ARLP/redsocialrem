@@ -40,3 +40,5 @@ Route::post("newpost", "PostController@newPost");
 Route::post("/post/{id}/eliminar", "PostController@eliminarPost");
 
 Route::post("guardarcambios", "PostController@guardarCambios");
+
+Route::get("perfil/{id}/agregaramigo", "UserController@agregarAmigo");

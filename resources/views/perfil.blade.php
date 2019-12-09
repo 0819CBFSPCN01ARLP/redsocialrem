@@ -29,7 +29,7 @@
           <div class=" card-body w-100">
             @foreach ($images as $image)
               @if ($image->position == "fotoPerfil")
-                <img id="mi-foto" style="margin-left:25%" class="col-5 col-md-6 col-sm-6" src="/storage/{{$image->path}}">
+                <img id="mi-foto" style="margin-left:25%;width:20%" class="col-5 col-md-6 col-sm-6" src="/storage/{{$image->path}}">
               @endif
             @endforeach
             <p class = "ml-4"><b>{{$user->name}} {{$user->surname}}</b></p>

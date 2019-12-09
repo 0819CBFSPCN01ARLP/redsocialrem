@@ -32,6 +32,12 @@ class UserController extends Controller
     return redirect("miperfil");
   }
 
+  public function agregarAmigo(Request $req) {
+    $user = Auth::user();
+    $user->friends()->attach($req['id_friend']);
+    return redirect("/miperfil");
+  }
+
   // VISTAS
 
   // funcion que va al perfil
@@ -55,7 +61,7 @@ class UserController extends Controller
     return view("usuarios", $vac);
   }
 
-  // funcion para ver un usuario particular
+  // funcion que va a perfil amigo
   public function users($id) {
     // anda cuando quiere
     $user = Auth::user();
@@ -63,11 +69,11 @@ class UserController extends Controller
       return redirect('/miperfil');
     }
     $collection = User::where("id", "=", $id)->get();
-    $user = $collection->first();
-    $posts = $user->posts;
-    $images = $user->images;
-    $vac = compact("images", "posts", "user");
-    return view('perfil', $vac);
+    $friend = $collection->first();
+    $posts = $friend->posts;
+    $images = $friend->images;
+    $vac = compact("images", "posts", "user", "friend");
+    return view('perfilamigo', $vac);
   }
 
   public function faq() {
@@ -82,7 +88,16 @@ class UserController extends Controller
     return view('amigos', $vac);
   }
   public function home() {
-    return view('home');
+    $user = Auth::user();
+    $friends = $user->friends;
+    $posts = [];
+    $images = [];
+    foreach ($friends as $friend) {
+      $posts[] = $friend->posts->first();
+      $images[] = $friend->images->first();
+    }
+    $vac = compact("user", "friends", "posts", "images");
+    return view('home', $vac);
   }
   public function contacto() {
     return view('contacto');
