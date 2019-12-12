@@ -10,9 +10,6 @@
   <h1>Amigos</h1>
   <br>
   <!-- Todos los amigos -->
-
-      <button style="margin-left:20px ;margin-bottom:20px" type="button" class="btn btn-outline-secondary">+ Agregar Amigo</button>
-
   <section class="row w-100">
       @forelse ($users as $user)
         <div class="card mx-auto" style="max-width: 540px;">
@@ -35,7 +32,6 @@
             </div>
           </div>
         </div>
-          <button type="button" class="btn btn-outline-secondary">- Eliminar Amigo</button>
       @empty
         <p class="ml-5">Aún no tienes amigos.</p>
       @endforelse

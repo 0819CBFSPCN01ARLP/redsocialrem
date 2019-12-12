@@ -55,7 +55,7 @@
               <a class="menuLink nav-link" href={{url('/miperfil')}}><ion-icon name="contact"></ion-icon>Mi Perfil</a>
               <a class="menuLink nav-link" href={{url('/amigos')}}><ion-icon name="contacts"></ion-icon>Amigos</a>
               <a class="menuLink nav-link" href={{url('/home')}}><ion-icon name="home"></ion-icon>Home</a>
-              <a class="menuLink nav-link" href={{url('/usuarios')}}><i class="fas fa-user-edit">Usuarios</i></a>
+              <a class="menuLink nav-link" href={{url('/usuarios')}}><i class="fas fa-user-edit"></i>Usuarios</a>
             </div>
           </div>
         </nav>

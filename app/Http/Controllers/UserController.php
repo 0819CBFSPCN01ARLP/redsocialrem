@@ -35,19 +35,20 @@ class UserController extends Controller
   public function agregarAmigo(Request $req) {
     $user = Auth::user();
     $user->friends()->attach($req['id_friend']);
-    return redirect("/miperfil");
+    return redirect("perfil/" . $req['id_friend']);
+  }
+
+  public function eliminarAmigo(Request $req) {
+    $user = Auth::user();
+    $user->friends()->detach($req['id_friend']);
+    return redirect("perfil/" . $req['id_friend']);
   }
 
   // VISTAS
 
   // funcion que va al perfil
   public function profile(Request $request) {
-    if (Auth::check()) {
-      $user = $request->user();
-    }
-    else {
-      return redirect("login");
-    }
+    $user = Auth::user();
     $posts = $user->posts;
     $images = $user->images;
     $vac = compact("images", "posts", "user");
@@ -87,18 +88,16 @@ class UserController extends Controller
     $vac = compact("users");
     return view('amigos', $vac);
   }
+
+  // funcion que va a home
   public function home() {
     $user = Auth::user();
     $friends = $user->friends;
-    $posts = [];
-    $images = [];
-    foreach ($friends as $friend) {
-      $posts[] = $friend->posts->first();
-      $images[] = $friend->images->first();
-    }
-    $vac = compact("user", "friends", "posts", "images");
-    return view('home', $vac);
+    $posts = $user->friendsPosts();
+    $vac = compact("user", "posts", "friends");
+    return view("home", $vac);
   }
+
   public function contacto() {
     return view('contacto');
   }

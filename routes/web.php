@@ -14,26 +14,33 @@
 Auth::routes();
 
 // POR GET
-Route::get('/', "UserController@home");
+Route::get('/', "UserController@home")->middleware('auth');
 
-Route::get('/miperfil', "UserController@profile");
+Route::get('/miperfil', "UserController@profile")->middleware('auth');
 
-Route::get('/perfil/{id}', 'UserController@users');
+Route::get('/perfil/{id}', 'UserController@users')->middleware('auth');
 
-Route::get("usuarios", "UserController@usuarios");
+Route::get("perfil/{id}/agregaramigo", "UserController@agregarAmigo")->middleware('auth');
+
+Route::get("usuarios", "UserController@usuarios")->middleware('auth');
 
 Route::get("preguntas-frecuentes", "UserController@faq");
 
-Route::get("amigos", "UserController@amigos");
+Route::get("amigos", "UserController@amigos")->middleware('auth');
 
-Route::get("home", "UserController@home");
+Route::get("home", "UserController@home")->middleware('auth');
 
 Route::get("contacto", "UserController@contacto");
 
-Route::get("/post/{id}/editar", "PostController@editarPost");
+Route::get("/post/{id}/editar", "PostController@editarPost")->middleware('auth');
+
+Route::get("/comment/{id}/eliminar", "CommentController@eliminarComentario")->middleware('auth');
+
 
 // POR POST
 Route::post("profilepicture", "UserController@newProfilePicture");
+
+Route::post("perfil/{id}/eliminaramigo", "UserController@eliminarAmigo");
 
 Route::post("newpost", "PostController@newPost");
 
@@ -41,4 +48,4 @@ Route::post("/post/{id}/eliminar", "PostController@eliminarPost");
 
 Route::post("guardarcambios", "PostController@guardarCambios");
 
-Route::get("perfil/{id}/agregaramigo", "UserController@agregarAmigo");
+Route::post("/post/{id}/comentar", "CommentController@newComment");
