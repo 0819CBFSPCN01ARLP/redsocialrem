@@ -39,7 +39,8 @@ class User extends Authenticatable
       $posts = DB::table('posts')
             ->join('friends', 'posts.id_user', '=', 'friends.id_friend')
             ->where("friends.id_user", "=", $this->id)
-            ->select('posts.*');
+            ->select('posts.*')
+            ->orderBy("id", "desc");
       $builder = new Builder($posts);
       $builder->setModel($post);
       return $builder->get();

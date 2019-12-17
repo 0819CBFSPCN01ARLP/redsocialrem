@@ -3,14 +3,14 @@ body {
 }
 header {
   background-color: #464655;
-  padding-top: 1rem;
-  padding-bottom: 2.5rem;
+  padding-bottom: 3.5rem;
   color: white !important;
 }
 .logo {
-  background-position: left;
-  width: 4rem;
-  margin-right: 5%;
+  width: 3rem;
+  display: block;
+  margin-left: 1rem;
+  margin-top: 0.2rem;
 }
 .menuLink {
   background-position: center;
@@ -19,7 +19,8 @@ header {
   margin-left:5px;
   text-decoration: none;
   color: white;
-  margin-right: 2rem;
+  margin-right: 1rem;
+  margin-top: 0.7rem;
 }
 .menuLink:hover {
   text-decoration: none;
@@ -27,5 +28,4 @@ header {
 }
 footer {
   background-color:#464655;
-  padding: 0.5rem;
 }

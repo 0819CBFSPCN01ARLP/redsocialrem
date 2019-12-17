@@ -36,11 +36,11 @@ Route::get("/post/{id}/editar", "PostController@editarPost")->middleware('auth')
 
 Route::get("/comment/{id}/eliminar", "CommentController@eliminarComentario")->middleware('auth');
 
+Route::get("perfil/{id}/eliminaramigo", "UserController@eliminarAmigo");
+
 
 // POR POST
 Route::post("profilepicture", "UserController@newProfilePicture");
-
-Route::post("perfil/{id}/eliminaramigo", "UserController@eliminarAmigo");
 
 Route::post("newpost", "PostController@newPost");
 

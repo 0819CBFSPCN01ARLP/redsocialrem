@@ -10,7 +10,7 @@
 
   <div class="cuerpo row justify-content-center">
 
-    <aside class="col-md-3 mt-5">
+    <aside class="col-md-3 mt-2">
       <div class="card">
         <div class="card-header headerCartaAmigo">
           Amigos
@@ -32,17 +32,17 @@
       </div>
     </aside>
 
-    <section class="publicaciones col-12 col-md-7 mt-5">
+    <section class="publicaciones col-12 col-md-7 mt-2">
 
       <!-- Subida de publicaciones -->
       <div class="container">
-        <section class = "col-lg-12 col-sm-12">
+        <section class = "col-12">
           <div class="card w-100">
             <div class="card-body w-100">
-              <form class="col-lg-12 col-md-6" action="newpost" method="post" enctype="multipart/form-data">
+              <form id="postForm" class="" action="newpost" method="post" enctype="multipart/form-data">
                 @csrf
-                <input name="image" type="file" class="file" multipledata-show-upload="false" data-show-caption="true" data-msg-placeholder="Seleccione una foto...">
-                <textarea class="col-sm-6 col-md-8 col-lg-9 mt-2" name="text" rows="1" placeholder="¿Qué estás pensando?" required></textarea>
+                <input id="postImage" name="image" type="file" class="file" multipledata-show-upload="false" data-show-caption="true" data-msg-placeholder="Seleccione una foto...">
+                <textarea id="postText" class="col-sm-6 col-md-8 col-lg-9 mt-2" name="text" rows="1" placeholder="¿Qué estás pensando?"></textarea>
                 <br>
                 <button style="background-color:#464655; color:white" class="btn mt-2 ml-3" type="submit" name="post">Publicar</button>
               </form>
@@ -54,45 +54,47 @@
 
       <!-- Publicaciones -->
       <div class="container">
-        <section class = "col-lg-10 col-sm-10">
+        <section class = "col-12">
           @forelse ($posts as $post)
             <div class="card w-100">
-              <div style="" class="card-body w-100 ">
+              <div style="" class="card-body w-100">
                 <h3><a href="/perfil/{{$post->user->id}}">{{$post->user->name}} {{$post->user->surname}}</a></h3>
                 @if (isset($post->image))
-                  <img width="300" src="/storage/{{$post->image->path}}" alt="">
+                  <img class="imagePost" width="100%" src="/storage/{{$post->image->path}}" alt="">
                 @endif
                 <br>
-                <p>{{$post->text}}</p>
+                <p class="ml-2 mt-2 mb-0">{{$post->text}}</p>
                 <br>
-                <form class="" action="post/{{$post->id}}/comentar" method="post">
-                  @csrf
-                  <input type="hidden" name="page" value="home">
-                  <input type="hidden" name="postId" value="{{$post->id}}">
-                  <input type="text" name="comment" class="form-control mt-2" required>
-                  <button class="btn mt-2 ml-3" style="background-color:#464655; color:white" type="submit" name="comentar">Comentar</button>
-                </form>
 
                 <!-- comentarios -->
                 @forelse ($post->comments as $comment)
-                  <div class="card w-50 ">
-                    <div style="" class="card-body w-100">
-                      <img width="100" class="float-left mr-4" src="/storage/{{$comment->user->fotoPerfil()}}" alt="">
-                      <br>
-                      <h4><a href="/perfil/{{$comment->user->id}}">{{$comment->user->name}} {{$comment->user->surname}}</a></h4>
-                      <p>{{$comment->text}}</p>
+                  <div class="card w-100 mt-3">
+                    <div style="" class="card-body p-2 w-100">
+                      <img width="10%" class="float-left m-2" src="/storage/{{$comment->user->fotoPerfil()}}" alt="">
+                      {{-- baja de comentarios --}}
                       @if ($comment->user->id == $user->id)
-                        <form class="" action="/comment/{{$comment->id}}/eliminar" method="get">
+                        <form class="delete" action="/comment/{{$comment->id}}/eliminar" method="get">
                           <input type="hidden" name="page" value="home">
                           <input type="hidden" name="id" value="{{$comment->id}}">
-                          <button class="btn" type="submit" name="button" style="background-color:#464655; color:white">Eliminar</button>
+                          <button type="submit" name="eliminar" class="btn mb-2 float-right" style="background-color:#464655; color:white"><i class="fas fa-trash-alt"></i></button>
                         </form>
                       @endif
+                      <h5><a href="/perfil/{{$comment->user->id}}">{{$comment->user->name}} {{$comment->user->surname}}</a></h5>
+                      <p class="mb-0">{{$comment->text}}</p>
                     </div>
                   </div>
+                  <br>
                 @empty
 
                 @endforelse
+                {{-- Subida comentario --}}
+                <form class="input-group commentForm" action="post/{{$post->id}}/comentar" method="post">
+                  @csrf
+                  <input type="hidden" name="page" value="home">
+                  <input type="hidden" name="postId" value="{{$post->id}}">
+                  <input type="text" name="comment" class="form-control commentText">
+                  <button class="btn form-control input-group-append col-2" style="background-color:#464655; color:white" type="submit" name="comentar">Comentar</button>
+                </form>
 
 
               </div>
@@ -107,21 +109,6 @@
 
     </section>
   </div>
-
-  <aside class="col-md-3 mt-5">
-    <div class="card">
-      <div class="card-header headerCartaAmigo">
-        <h3>Puede que te interese</h3>
-      </div>
-      <ul class="list-group list-group-flush">
-        <li class="list-group-item"><a class="col-12"href="https://www.infotechnology.com/"><img class="col-12"src="tecnologia.jpeg"></a><h4>«Descubre y aprende todo de tecnología»</h4></li>
-        <li class="list-group-item"><a class="col-12"href="https://www.espn.com.ar/"><img class="col-12"src="deportes.png"></a><h4>lo último del mundo deportivo</h4> </li>
-        <li class="list-group-item"><a class="col-12"href="https://www.cinemarkhoyts.com.ar/"><img class="col-12"src="cine.jpg"></a><h4>Enterate de las novedades del cine!</h4> </li>
-        <li class="list-group-item"><a class="col-12"href="https://www.20minutos.es/minuteca/conciertos/"><img class="col-12"src="conciertos.jpg"></a><h4>Averigua de los conciertos de tus bandas favoritas!</li>
-          <li class="list-group-item"><a class="col-12"href="https://www.3djuegos.com/"><img class="col-12"src="juegos.jpg"></a>En 3DJuegos encontrarás Juegos, noticias, reportajes, videos, análisis y la mayor comunidad de usuarios sobre videojuegos.</li>
-        </ul>
-      </div>
-    </aside>
 
   @endsection
 

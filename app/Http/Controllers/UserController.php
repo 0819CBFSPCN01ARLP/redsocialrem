@@ -49,7 +49,7 @@ class UserController extends Controller
   // funcion que va al perfil
   public function profile(Request $request) {
     $user = Auth::user();
-    $posts = $user->posts;
+    $posts = $user->posts()->orderBy("id", "desc")->get();
     $images = $user->images;
     $vac = compact("images", "posts", "user");
     return view('perfil', $vac);
@@ -64,14 +64,13 @@ class UserController extends Controller
 
   // funcion que va a perfil amigo
   public function users($id) {
-    // anda cuando quiere
     $user = Auth::user();
     if ($user->id == $id) {
       return redirect('/miperfil');
     }
     $collection = User::where("id", "=", $id)->get();
     $friend = $collection->first();
-    $posts = $friend->posts;
+    $posts = $friend->posts()->orderBy("id", "desc")->get();
     $images = $friend->images;
     $vac = compact("images", "posts", "user", "friend");
     return view('perfilamigo', $vac);

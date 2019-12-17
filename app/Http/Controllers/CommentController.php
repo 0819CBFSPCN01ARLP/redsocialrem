@@ -25,6 +25,7 @@ class CommentController extends Controller
       $comment->id_post = $req["postId"];
       $comment->id_user = $user->id;
       $comment->save();
+
       if ($req["page"] == "home") {
         return redirect("home");
       }
@@ -41,6 +42,7 @@ class CommentController extends Controller
       $id = $req["id"];
       $comment = Comment::where("id", "=", $id);
       $comment->delete();
+      
       if ($req["page"] == "home") {
         return redirect("home");
       }

@@ -9,6 +9,10 @@
 .fotoAmigo{
   width: 5rem;
 }
+.imagePost {
+  width: 100%;
+  height: 50vh;
+}
 .fotoPerfil {
   border-radius: 100% !important;
   margin-bottom: 10px;

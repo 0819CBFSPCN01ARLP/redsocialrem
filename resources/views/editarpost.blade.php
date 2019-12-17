@@ -27,7 +27,7 @@
             @csrf
             <input name="image" type="file" class="file" multipledata-show-upload="false" data-show-caption="true" data-msg-placeholder="Seleccione una foto...">
             <textarea class="col-sm-6 col-md-8 col-lg-9 mt-2" name="text" rows="1" value="{{$post->text}}">{{$post->text}}</textarea>
-            <img src="/storage/{{$image->path}}" alt="">
+            <img width="200" src="/storage/{{$image->path}}" alt="">
             <br>
             <input type="hidden" name="post" value="{{$post->id}}">
             <button style="background-color:#464655; color:white" class="btn mt-2 ml-3" type="submit">Publicar</button>

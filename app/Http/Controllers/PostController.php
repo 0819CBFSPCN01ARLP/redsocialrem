@@ -85,6 +85,10 @@ class PostController extends Controller
     $post = $collection->first();
     $collection = Image::where("id", "=", $post->id_image)->get();
     $image = $collection->first();
+    $comments = $post->comments;
+    foreach ($comments as $comment) {
+      $comment->delete();
+    }
     $post->delete();
     $image->delete();
     return redirect("miperfil");
