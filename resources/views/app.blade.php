@@ -51,8 +51,8 @@ use Illuminate\Database\Eloquent\Model;
         </nav>
 
     @else
-      <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
-        <a class="navbar-brand" href="{{url('/home')}}"><img class="logo float-left" src="/logo.png" alt="logo"></a>
+      <nav class="navbar navbar-expand-sm navbar-dark bg-dark p-0">
+        <a class="navbar-brand p-0 mb-1" href="{{url('/home')}}"><img class="logo float-left" src="/logo.png" alt="logo"></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample03" aria-controls="navbarsExample03" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
