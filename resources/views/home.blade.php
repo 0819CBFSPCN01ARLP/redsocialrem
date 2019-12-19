@@ -32,7 +32,7 @@
       </div>
     </aside>
 
-    <section class="publicaciones col-12 col-md-7 mt-2">
+    <section class="publicaciones col-7 mt-2">
 
       <!-- Subida de publicaciones -->
       <div class="container">

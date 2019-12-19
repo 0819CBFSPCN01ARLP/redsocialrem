@@ -20,18 +20,18 @@
       </div>
     @endif
 
-    {{-- Banner y foto de perfil --}}
-    <div class="mb-5">
-      <section id=perfil class ="text-center">
-        <article class="col-6 m-auto">
-          <div class="card">
-            <div class=" card-body">
-              @foreach ($images as $image)
-                @if ($image->position == "fotoPerfil")
-                  <img class="col-5" src="/storage/{{$image->path}}">
-                @endif
-              @endforeach
-              <h3 class="float-right">{{$friend->name}} {{$friend->surname}}</h3>
+    {{-- Foto de perfil --}}
+    <div class="row justify-content-between">
+      <div class="px-5 mt-2">
+        <article class="col-4">
+          <div class="card" style="width: 18rem;">
+            @foreach ($images as $image)
+              @if ($image->position == "fotoPerfil")
+                <img class="card-image-top col-12 p-0" src="/storage/{{$image->path}}">
+              @endif
+            @endforeach
+            <div class="card-body">
+              <h3 class="card-title">{{$friend->name}} {{$friend->surname}}</h3>
               @if ($user->isFriend($friend->id) !== null)
                 <form action="/perfil/{{$friend->id}}/eliminaramigo" method="get">
                   @csrf
@@ -48,13 +48,12 @@
             </div>
           </div>
         </article>
-      </section>
     </div>
     <br>
 
     <!-- Publicaciones -->
-    <div class="container">
-      <section class = "col-10 m-auto">
+    <div class="col-8">
+      <section class = "container px-5 mt-2">
         @forelse ($posts as $post)
         <div class="card w-100">
           <div style="" class="card-body w-100 ">
@@ -107,6 +106,7 @@
         @endforelse
       </section>
     </div>
+  </div>
 
   </main>
 @endsection
